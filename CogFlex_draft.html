@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My experiment</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://timbrady.org/turk/TimTurkTools.js"></script>
+<script src="jsPsych/jspsych-6.1.0/jspsych.js"></script>
+<script src="jsPsych/jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
+<script src="jsPsych/jspsych-6.1.0/plugins/jspsych-html-button-response.js"></script>
+<script src="jsPsych/jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js"></script>
+<script src="jsPsych/jspsych-6.1.0/plugins/jspsych-survey-multi-choice.js"></script>
+<script src="jsPsych/jspsych-6.1.0/plugins/jspsych-survey-multi-select.js"></script>
+<script src="jsPsych/jspsych-6.1.0/plugins/jspsych-video-button-response.js"></script>
+<script src="jsPsych/jspsych-6.1.0/plugins/jspsych-survey-text.js"></script>
+<script src="jsPsych/jspsych-6.1.0/plugins/jspsych-free-sort.js"></script>
+<!--audio record 1-->
+<script src="jsPsych/jspsych-6.1.0/plugins/jspsych-html-audio-response_modified.js"></script>
+<!--audio record 2-->
+<script src="jsPsych/jspsych-6.1.0/plugins/jspsych-html-audio-response.js"></script>
+<!--link here-->
+<link href="jsPsych/jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+
+<style>
+
+</style>
+</head>
+  
+  <body>
+    <script>
+
+var randCode = "COG" + Math.round(Math.random()*1000) + "420" + Math.round(Math.random()*1000) + "FLEX";
+
+Shuffle = function (o) {
+    for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+    return o;
+};
+
+var startTime = new Date();
+
+var timeline = [];
+
+var sorting_stimuli = ["dog","cat","fish","bird","turtle"];
+// for (var i = 1; i <= 12; i++) {
+    // sorting_stimuli.push("img/cell_img_" + i + ".jpg");
+// }
+
+// var sort_trial = {
+//     type: 'free-sort',
+//     stimuli: sorting_stimuli,
+//     prompt: "<p>Click and drag the images below to sort them so that similar items are close together.</p>"
+// };
+
+// timeline.push(sort_trial);
+
+ratTrials = [];
+
+var introRAT = {
+type: 'html-keyboard-response',
+stimulus: "On each of the following pages, you will be shown 3 target words.<br>"+
+"Your goal is to attempt to generate a fourth word which, when combined with <br><b>each of the three target words</b>, will result in word pairs that make up a common compound word or phrase.<br>"+
+`Let's look at an example. For the target words:<br><br>`+
+"cottage, swiss, cake<br><br>"+
+`the 4th word would be <b>cheese</b>. This would create the word pairs 'cottage cheese,' 'swiss cheese,' and 'cheesecake.' <br><br>`+
+"Here's how to play: we will be recording your responses, to make things easier for you.<br>"+
+"All you have to do is think out loud while considering different options.<br>"+
+'You will have <b>1 minute</b> for each trial. If you arrive at the answer before then, press the <b>SPACEBAR</b> to immediately proceed.<br>'+
+"Only push the spacebar if you have arrived at your final answer and want to move on. YOU CANNOT GO BACK.<br>"+
+"We will first start with a few training trials so you can get the hang of it.<br>"+
+"You will have to grant the browser mic access. Be sure to click back to the center of the page after you click accept, otherwise the spacebar won't work!<br><br><br><br>",
+choices: ['space'],
+prompt: "<p>Press spacebar to continue</p>",
+data: {trialType: 'RAT_Instr'}
+};
+
+ratTrials.push(introRAT)
+
+var wordTriads = [['chocolate', 'fortune', 'tin'],
+['safety', 'cushion', 'point'],
+['dust', 'cereal', 'fish'],
+['print', 'berry', 'bird'],
+['widow', 'bite', 'monkey'],
+['date', 'alley', 'fold'],
+['wagon', 'break', 'radio'],
+['hound', 'pressure', 'shot'],
+['coin', 'quick', 'spoon'],
+['demon', 'limit', 'way'],
+['broken', 'clear', 'eye'],
+['pike', 'coat', 'signal'],
+['lift', 'card', 'mask'],
+['due', 'life', 'tense'],
+['strike', 'same', 'tennis'],
+['time', 'hair', 'stretch'],
+['pine', 'crab', 'sauce'],
+['speak', 'money', 'street'],
+['mail', 'board', 'lung'],
+['water', 'tobacco', 'stove'],
+['tooth', 'potato', 'heart'],
+['chest', 'car', 'store'],
+['land', 'hand', 'house'],
+['high', 'book', 'sour'],
+['bump', 'egg', 'step']];
+
+var wordTriadsShuffled = Shuffle(wordTriads);
+
+// for (i=0; i < wordTriads.length; i++){
+//     wordTriadsShuffled.push(Shuffle(wordTriads[i]))
+// };
+
+// var wordTriadsShuffled = Shuffle(wordTriadsShuffled);
+
+var exampleTriads = [["cream", "skate", "water"],
+['loser', 'throat', 'spot'],
+['night', 'wrist', 'stop'],
+['rocking', 'wheel', 'high']];
+
+
+for (i=0; i < exampleTriads.length; i++){
+    ratTrials.push({
+      type: 'html-audio-response_modified',
+    //   stimulus: `${wordTriadsShuffled[i][0]}, ${wordTriadsShuffled[i][1]}, ${wordTriadsShuffled[i][2]}`,
+      stimulus: `This is a training trial. The words for this trial are:<br><br><br>${exampleTriads[i][0]}, ${exampleTriads[i][1]}, ${exampleTriads[i][2]}<br><br><br>`,
+      buffer_length: 60000,
+      allow_playback: false,
+      manually_end_recording_key: ['space'],
+      stimulus_duration: 60000,
+      wait_for_mic_approval: true,
+      prompt: 'If you finish early, press the spacebar to continue.',
+      data: {trialType: `RAT_example${i+1}`}
+    })
+};
+
+ratTrials.push({
+type: 'html-keyboard-response',
+stimulus: "Great! Now that you've got the hang of it, let's begin. The first page will be another example.<br>"+
+"All pages to follow will be real trials! When you're ready to begin, press space.",
+choices: ['space'],
+prompt: "<p>Press spacebar to continue</p>",
+data: {trialType: 'RAT_Instr2'}
+});
+
+ratTrials.push({
+      type: 'html-audio-response_modified',
+      stimulus: `This is a training trial. The words for this trial are:<br><br><br>fox, man, peep<br><br><br>`,
+      buffer_length: 180000,
+      allow_playback: false,
+      manually_end_recording_key: ['space'],
+      stimulus_duration: 180000,
+      wait_for_mic_approval: true,
+      prompt: "When you're ready to begin the real trials, press the spacebar to continue.",
+      data: {
+			trialType: "RAT_example5"}
+    });
+
+// for (i=0; i < wordTriads.length; i++){
+for (i=0; i < wordTriadsShuffled.length; i++){
+    ratTrials.push({
+      type: 'html-audio-response_modified',
+      stimulus: `${wordTriadsShuffled[i][0]}, ${wordTriadsShuffled[i][1]}, ${wordTriadsShuffled[i][2]}<br><br><br>`,
+    //   stimulus: `${wordTriads[i][0]}, ${wordTriads[i][1]}, ${wordTriads[i][2]}`,
+      buffer_length: 60000,
+      allow_playback: false,
+      manually_end_recording_key: ['space'],
+      stimulus_duration: 60000,
+      wait_for_mic_approval: true,
+      prompt: 'If you finish early, press the spacebar to continue.',
+      data: {trialType: `RAT${i+1}`}
+    })
+};
+
+for (i=0; i < ratTrials.length; i++){
+    timeline.push(ratTrials[i])
+}
+
+// var audio_record_trial1 = {
+//       type: 'html-audio-response_modified',
+//       stimulus: "test",
+//       buffer_length: 60000,
+//       allow_playback: false,
+//       manually_end_recording_key: ['space'],
+//       stimulus_duration: 60000,
+//       wait_for_mic_approval: true,
+//       prompt: 'If you finish early, press the spacebar to continue.'
+//     };
+
+// timeline.push(audio_record_trial);
+
+var demographics = {
+  type: 'survey-multi-choice',
+  questions: [
+    {prompt: "<strong>Are you colorblind?</strong>", options: ["Yes, I am colorblind.","No, I am not colorblind"], values: ["Colorblind", "Not-Colorblind"], required: true, horizontal: false, name: 'Demo_Colorblind'}, 
+    {prompt: "<strong>What gender do you identify as?</strong>", options: ["Male", "Female", "Additional gender category/identity not listed", "Prefer not to answer"], values: ["Male", "Female", "Other", "No-Answer"], required: true, horizontal: false, name: 'Demo_Gender'},
+    {prompt: "<strong>What is your race/ethnicity?</strong>", options: ["Native American or Alaska Native", "Asian", "Pacific Islander", "Black or African American", "White", "Multi-racial / Multi-ethnic", "Other"], values: ["Native", "Asian", "Pacific-Islander", "Black", "White", "Multi", "Other"], required: true, horizontal: false, name: 'Demo_Race'},
+    {prompt: "<strong>Do you identify as Hispanic or Latino/a?</strong>", options: ["Yes, I identify as either Hispanic or Latino/a","No, I do not identify as either Hispanic or Latino/a"], values: ["Hispanic", "Not-Hispanic"], required: true, horizontal: false, name: 'Demo_Hispanic'}
+  ],
+  data: {
+			trialType: "demographics"}
+};
+
+timeline.push(demographics);
+
+// var demographics2 = {
+//   type: 'survey-text',
+//   questions: [
+//     {prompt: "What is your current age?", name: 'Age', rows: 1, columns: 2, required: true},
+//     {prompt: "In your own words, please tell us about what you have seen, and what you had to do, in this study so far:", name: 'ParticipationSummary', rows: 10, columns: 70, required: true}, 
+//     {prompt: "If you had to guess, what do you think this study was about?", name: 'MotivationGuess', rows: 10, columns: 70, required: true}, 
+//     {prompt: "During your participation, did you encounter any issues or technical difficulties?", name: 'TechnicalIssues', rows: 10, columns: 70, required: true}
+//   ],
+//   data: {
+// 			trialType: "demographics2"}
+// };
+
+// timeline.push(demographics2);
+
+
+
+// let preloadImages = [];
+// var nBNumbers = [1, 3, 5, 12, 14, 24, 25, 50, 77, 348, 527, 528, 582, 2849, 7564, 7686];
+// var nBNumbers = [1, 3, 5, 12, 14, 24, 25, 50, 77, 348, 527, 528, 582, 2849, 7559, 7564, 7686];
+// var bNumbers = [348, 527, 528, 1420, 1421, 1463, 7184, 7342, 7343];
+
+// for (i = 0; i < nBNumbers.length; i++) {
+//   preloadImages.push(`https://www.ethanhurwitz.com/stimages/TT_Stimuli/noBarrier/${nBNumbers[i]}.png`)
+// };
+
+// for (i = 0; i < bNumbers.length; i++) {
+//   preloadImages.push(`https://www.ethanhurwitz.com/stimages/TT_Stimuli/barrier/${bNumbers[i]}.png`)
+// };
+
+// var instrTrials = ['default_barrier_instructions1', 'default_noBarrier_instructions1', 'efficiency_fun_instructions',
+// 'efficiency_quick_instructions', 'location_close_instructions', 'location_far_instructions'];
+
+// for (i = 0; i < 6; i++) {
+//     preloadImages.push(`https://www.ethanhurwitz.com/stimages/TT_Stimuli/${instrTrials[i]}.jpg`)
+// }
+
+
+jsPsych.data.addProperties({userAgent: navigator.userAgent,
+	startTime: startTime,
+	randCode: randCode
+});
+
+jsPsych.init({
+      timeline: timeline,
+    //   preload_images: preloadImages,
+	  show_progress_bar: true,
+      on_finish: function () {
+			var endTime = new Date();
+			jsPsych.data.addProperties({endTime: endTime});
+            jsPsych.data.displayData();
+			//  SaveData(jsPsych.data.get().csv()); // .json()?
+    }
+    });
+
+    function SaveData(curData) {
+  var dataToServer = {
+    'id': randCode,
+    'experimenter': 'Ethan',
+    'experimentName': 'CogFlex_Draft_v1',
+    'curData': curData
+  }; 
+	
+//   $.post("https://madlab.ucsd.edu/mturk/save.php",
+//     dataToServer,
+//     function(data) { 
+// 			var newDoc = document.open("text/html", "replace");
+// 			newDoc.write("All done, thanks! To submit the HIT, paste this code into Turk: " + randCode);
+// 			newDoc.close();
+//     }
+//   ).fail(function(data) { 
+// 			var newDoc = document.open("text/html", "replace");
+// 			newDoc.write("All done, thanks! To submit the HIT, paste this code into Turk: " + randCode);
+// 			newDoc.close();
+// 	});  
+
+
+$.post("https://madlab.ucsd.edu/mturk/save.php",
+    dataToServer,
+    FunctionWhenDoneSaving
+  ).fail(FunctionWhenDoneSaving);
+};
+
+function FunctionWhenDoneSaving() {
+        var urlToRedirect = "https://ucsd.sona-systems.com/webstudy_credit.aspx?experiment_id=2011&credit_token=47b9328d752c45a7967e8656d63542d0&survey_code=" +
+        jsPsych.data.getURLVariable('survey_code');
+       window.location.href = urlToRedirect;
+      };
+
+
+
+
+    </script>
+  </body>
+</html>
