@@ -60,9 +60,9 @@ var preload = {
     'stimuli/triangle.png',
     'stimuli/diamond.png',
     'stimuli/pentagon.png'],
-    video: ['stimuli/blicketsTraining.mp4',
-'stimuli/blicketsIntro.mp4',
-'stimuli/blicketsTest.mp4'],
+    video: ['https://bradylab.ucsd.edu/turk/experiments/Ethan/functionalForm/blicketsTraining.mp4',
+'https://bradylab.ucsd.edu/turk/experiments/Ethan/functionalForm/blicketsIntro.mp4',
+'https://bradylab.ucsd.edu/turk/experiments/Ethan/functionalForm/blicketsTest.mp4'],
     message: '<p>Please wait while the files load.</p>',
     continue_after_error: true,
     max_load_time: 1000000,
@@ -99,7 +99,7 @@ timeline.push(after_preload);
 var partID = {
   type: 'survey-text',
   questions: [
-    {prompt: "Enter participant ID", name: 'partID', rows: 1, columns: 12, required: true}
+    {prompt: "Enter ID", name: 'partID', rows: 1, columns: 12, required: true}
   ],
   data: {
 			type: "partID"}
@@ -121,7 +121,7 @@ timeline.push(consent);
 var blicketIntro = {
     type: 'video-button-response',
     stimulus: [
-    'stimuli/blicketsIntro.mp4',
+    'https://bradylab.ucsd.edu/turk/experiments/Ethan/functionalForm/blicketsIntro.mp4',
     ],
     choices: ['Continue'],
     response_allowed_while_playing: false,
@@ -135,7 +135,7 @@ timeline.push(blicketIntro);
 var blicketTraining = {
     type: 'video-button-response',
     stimulus: [
-        'stimuli/BlicketsTraining.mp4',
+        'https://bradylab.ucsd.edu/turk/experiments/Ethan/functionalForm/blicketsTraining.mp4',
     ],
     choices: ['Continue'],
     response_allowed_while_playing: false,
@@ -225,7 +225,7 @@ timeline.push(training_test_transition);
 var blicketTest = {
     type: 'video-button-response',
     stimulus: [
-    'stimuli/BlicketsTest.mp4',
+    'https://bradylab.ucsd.edu/turk/experiments/Ethan/functionalForm/blicketsTest.mp4',
     ],
     choices: ['Continue'],
     response_allowed_while_playing: false,
