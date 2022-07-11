@@ -1,0 +1,12 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "GridSearch",
+  "short_name": "GridSearch",
+  "version": "de.mpg.gridsearch",
+  "description": "GridSearch app.",
+  "author": "iSearch",
+  "icons": [],
+  "orientation": "landscape",
+  "start_url": "index.html"
+}

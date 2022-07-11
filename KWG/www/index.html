@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' ws: 'unsafe-inline' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+    <meta http-equiv=“Content-Security-Policy” content=“default-src ‘self’ https://madlab-research.ucsd.edu/savePentagon.php ws: ‘unsafe-inline’ data: gap: https://ssl.gstatic.com ‘unsafe-eval’; style-src ‘self’ ‘unsafe-inline’; media-src *; connect-src https://madlab-research.ucsd.edu/savePentagon.php; img-src ‘self’ data: content:;“>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <title>GridSearch</title>
+
+    <script src="js/jquery-3.2.1.min.js" charset="utf-8"></script>
+    <script src="js/jquery-ui.min.js" charset="utf-8"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> ADDED TEST CODE -->
+    <script src="js/d3.v3.min.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/ui.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/grid2D.css">
+
+    <script type="text/javascript" src="kernelRough.json"></script>
+    <script type="text/javascript" src="kernelSmooth.json"></script>
+</head>
+
+<body>
+    <div class='container' style="width: 95%; height: 95%">
+
+        <!-- User ID form -->
+        <div id="rt-start" class="route">
+            <div id="topbar">GridSearch App v1.0.0 <span id="stats-records"></span> <span id="user-id"></span></div>
+            <h1>Enter your code:</h1>
+            <div class="initial-form">
+                <input type="number" name="uid-input" id="uid-input"><br>
+                <button id="btn-initial-form">Start</button>
+            </div>
+        </div>
+        <!--First page contains Demographic Information -->
+        <div class="tablet" id="page1" style="display:none; width:700px; margin: 15px auto; text-align: center;">
+            <!-- <h1 class="text-xl">Erkundungsspiel</h1><br> -->
+            <!--<h1 class="text-xl">Exploration game</h1><br> --> <!--translation-->
+            <!-- <h3 class="text-xl">Demographische Daten</h3> -->
+            <h3 class="text-xl">Demographic data</h3> <!--translation-->
+            <br>
+            <form>
+                <fieldset data-role="Gender" data-type="horizontal">
+                    <!-- <legend class="text-l">Geschlecht:</legend> -->
+                    <legend class="text-l">Gender:</legend> <!--translation-->
+                    <input type="radio" name="demographics-gender" id="Male">
+                    <!-- <label for="Male" class="text-l">&nbsp; Männlich &nbsp; </label> -->
+                    <label for="Male" class="text-l">&nbsp; Male &nbsp; </label> <!--translation-->
+                    <input type="radio" name="demographics-gender" id="Female">
+                    <!-- <label for="Female" class="text-l">&nbsp; Weiblich &nbsp; </label> -->
+                    <label for="Female" class="text-l">&nbsp; Female &nbsp; </label> <!--translation-->
+                </fieldset> <br><br>
+                <fieldset data-role="Birthdate" data-type="horizontal">
+                    <!-- <legend class="text-l">Geburtsdatum:</legend> -->
+                    <legend class="text-l">Date of birth:</legend> <!--translation-->
+                    <input type="date" id="birthDate" class="form-control">
+                </fieldset><br><br>
+                <!-- <fieldset data-role="Grade" data-type="horizontal">
+                     <legend class="text-l">Klasse:</legend> comment out entire line
+                    <legend class="text-l">Class:</legend> comment out: translation
+                    <select id="gradeSelect" class="text-l">
+                        <option value="0" selected="selected">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                      </select>
+                </fieldset> -->
+                <br>
+            </form>
+        
+            <button class='btn-primary text-xl' type="button" name="button" id="buttonAssignScenario">Start</button>
+        </div>
+
+        <div id="page2" style="display:none; text-align:center;">
+            <div id="instructions" style="display:block">
+                <h3 class="text-xl">Instructions:</h3>
+                <br>
+                <!-- <p class="text-l"> In diesem Spiel zeige ich dir 11 verschiedene Spielfelder. Jedes Spielfeld besteht aus 64
+                    Kästchen. Wenn du auf ein Kästchen klickst, wird dir eine Punktzahl für dieses Kästchen angezeigt.
+                    <br /> <br /> Deine Aufgabe ist es, so viele Punkte wie möglich zu sammeln. <br /> <br /> Am Anfang von
+                    jedem Spielfeld ist ein Kästchen bereits aufgedeckt. Du darfst dann 25-mal klicken, um so viele Punkte
+                    wie möglich zu sammeln. Bei jedem Klick hast du die Wahl zwischen zwei Möglichkeiten: Entweder klickst
+                    du auf ein neues Kästchen, um zu schauen, wieviel Punkte es dafür gibt. Oder du klickst nochmal auf ein
+                    <br><br>Kästchen, dass du schon aufgedeckt hast, um nochmal Punkte dafür zu kriegen. Wenn du das tust, können
+                    sich aber die Punkte dieses Kästchens jedes Mal ein bisschen verändern. Wie viele Klicks du noch übrig
+                    hast wird dir über dem Spielfeld angezeigt. Wenn du alle Klicks aufgebraucht hast, beginnt der nächste
+                    Versuch mit einem neuen Spielfeld. <br /><br /> Um dir ein bisschen zu helfen, sind die Kästchen zusätzlich
+                    farbig markiert. Dunklere Farben entsprechen höheren Punktzahlen. Außerdem bekommst du noch einen wichtigen
+                    Tipp: <b>
+                In den Spielfeldern tauchen hohe Punktzahlen häufig neben anderen hohen Punktzahlen auf und niedrige Punktzahlen häufig neben anderen niedrigen Punktzahlen! </b>                    
+                <b>Die Punktzahl ist also abhängig davon, wo sich das Kästchen im Feld befindet!</b> <br /><br /> Auf jedem Spielfeld
+                    kannst du bis zu 5 Sterne sammeln. Je mehr Punkte du in einer Runde gesammelt hast, desto mehr Sterne
+                    bekommst du. Am Ende des Spiels kannst du die Sterne dann gegen Geld eintauschen. Wie viel Geld du für
+                    deine Sterne bekommst, siehst du in der Tabelle neben dem Tablet. <br /><br /> Hast du die Spielregeln
+                    verstanden? Super, dann kannst du ja mit dem ersten Spielfeld loslegen! Bitte denke daran, du möchtest
+                    so viele Punkte wie möglich sammeln! </p> -->
+                <p class="text-l"> In this game you will see 11 different playing fields. Each playing field consists of 64 boxes. 
+                    When you click on a box, you will be shown a score for that box.
+                    <br /> <br /> Your task is to collect as many points as possible. <br /> <br /> At the beginning of each game field one box is already uncovered. 
+                    You can then click 25 times to collect as many points as possible. With each click you have the choice between two options: 
+                    Either you click on a new box to see how many points there are for it. Or you click again on a box that you have already uncovered to get points for it again. 
+                    If you do, however, the points of this box may change a bit every time. Wie viele Klicks du noch übrig
+                    hast wird dir über dem Spielfeld angezeigt. How many clicks you have left will be displayed above the playing field. 
+                    <br /><br /> To help you a bit, the boxes are also marked in color. 
+                    Darker colors correspond to higher scores. You also get another important hint: <b>
+                    On the playing fields, high scores often appear next to other high scores, and low scores often appear next to other low scores! </b>                    
+                <b>So the score depends on where the box is located in the field!</b> <br /><br /> On each playing field you can collect up to 5 stars. 
+                The more points you collect in a round, the more stars you get. 
+                <br /><br /> Do you understand the rules of the game? Great, then you can start with the first playing field!
+                Please remember, you want to earn as many points as possible to have the highest star count at the end! </p>
+                
+            </div>
+            <div>
+                <button class='btn-primary text-xl' type="button" name="button" id="buttonGoToPageThree">I understand</button>
+            </div>
+        </div>
+
+
+        <div id="page3" style="display:none;">
+            <br>
+            <!-- <h1 class="text-xl"> Bitte beantworte vor Beginn ein paar Fragen zum Spiel </h1> -->
+            <h1 class="text-xl"> Please answer a few questions about the game before you begin </h1> <!--translation-->
+
+            <div class="radio">
+                <legend class="text-xl">What is your task?</legend>
+                <label class="text-l">
+                <input type="radio" name="q1" id="q1a" value="option1" checked>
+                 &nbsp; &nbsp; Learn colors
+              </label>
+            </div>
+            <div class="radio">
+                <label class="text-ml">
+                <input type="radio" name="q1" id="q1b" value="option2">
+                 &nbsp;  &nbsp; Collect as many points as possible
+              </label>
+            </div>
+            <div class="radio">
+                <label class="text-ml">
+                <input type="radio" name="q1" id="q1d" value="option4">
+                 &nbsp;  &nbsp; Find the box with the most points
+              </label>
+            </div>
+            <div class="radio">
+                <label class="text-ml">
+                <input type="radio" name="q1" id="q1c" value="option3" >
+                 &nbsp;  &nbsp; I have no idea
+              </label>
+            </div>
+
+            <div class="radio">
+                <legend class="text-xl">How can you earn points?</legend>
+            </div>
+
+            <div class="radio">
+                <label class="text-ml">
+                        <input type="radio" name="q2" id="q2a" value="option1" checked>
+                        &nbsp; &nbsp; By clicking only on hidden boxes
+                </label>
+            </div>
+
+            <div class="radio">
+                <label class="text-ml">
+                        <input type="radio" name="q2" id="q2b" value="option2">
+                        &nbsp; &nbsp; By clicking only on revealed boxes
+                </label>
+            </div>
+
+            <div class="radio">
+                <label class="text-ml">
+                        <input type="radio" name="q2" id="q2c" value="option3">
+                        &nbsp; &nbsp; By clicking on hidden or revealed boxes
+                </label>
+            </div>
+
+
+            <div class="radio">
+                <legend class="text-xl">How are the points distributed?</legend>
+                <label class="text-l">
+                <input type="radio" name="q3" id="q3a" value="option1" checked>
+                 &nbsp;  &nbsp; Randomly
+              </label>
+            </div>
+            <div class="radio">
+                <label class="text-ml">
+                <input type="radio" name="q3" id="q3b" value="option2">
+                 &nbsp;  &nbsp; High scores are <strong>never</strong> next to each other
+              </label>
+            </div>
+            <div class="radio">
+                <label class="text-ml">
+                <input type="radio" name="q3" id="q3c" value="option3" >
+                 &nbsp;  &nbsp; High scores are <strong>always</strong> in the same area
+              </label>
+            </div>
+            <div class="radio">
+                <label class="text-ml">
+                <input type="radio" name="q3" id="q3d" value="option3" >
+                 &nbsp;  &nbsp; High scores are <strong>often</strong> in the same area
+
+              </label>
+            </div><br>
+
+            <p class="text-l"> You can only proceed if you have answered all the questions correctly.</p>
+            <div>
+                <button class='btn-primary text-xl' type="button" name="button" id="buttonInstructionsCheck">Check answers</button>
+            </div>
+        </div>
+
+
+        <div id="page4" style="display:none; text-align:center;">
+            <br><br><br><br><br><br><br><br><br><br><br><br>
+
+            <h1 class="text-xxl">Wow! You did a great job! You have answered all the questions correctly and can now start the game.</h1>
+            <br><br>
+
+
+
+            <button class='btn-primary text-xl' type="button" name="button" id="buttonGoToPageFive">Start</button>
+
+
+        </div>
+
+
+
+
+        <!--Experiment Begins -->
+        <div id="page5" style="width: 100%; overflow: hidden; display:none">
+            <br><br>
+            <div id="gridDiv">
+                <table id='grid' class='grid'>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <div id="alertGridDiv" style="display:none">
+                <h2>Bonus round!</h2>
+                <p class="text-xl">
+                    I’m going to ask you questions about five different boxes that you haven’t revealed yet. 
+                    For each box, you will estimate how many points you would get if you clicked on it. 
+                    After that, you will pick one of the five boxes to reveal and then the game will continue normally.
+                    <br><br>
+                    You will continue playing as usual until all 25 clicks are used up.
+                    
+                </p><br><br>
+                <button class='btn-primary text-xl' type="button" name="button" id="buttonGoToBonusLevel">Continue</button>
+            </div>
+
+
+
+            <div id="progress">
+                <font class="text-xl" color="green"><b><div id="scoretotal"></div></b></font>
+                <div class="text-xl" id="remaining1">Remaining game boards: <b>11</b></div>
+                <div class="text-xl" id="remaining2">Remaining clicks: <b>25</b></div>
+
+                <div id="sidebarInstructions">
+                    <br>
+
+                    <p id="sidebarInstructions-1" class="text-l">
+                        In each round of this game you will see a game board like the one you see here. <br><br> 
+                        At the beginning of each round, one box on the game board is already revealed. <br><br> 
+                        Clicking on a box will reveal its score. <br><br> 
+                        In each round you have 25 clicks and your goal is to collect as many points as possible!
+                    </p>
+
+                    <p id="sidebarInstructions-2" class="text-m" style="display:none">
+                        Now you can practice on this game board.
+                        <br><br> 
+                        Before each click you have to decide whether to reveal a new box or click 
+                        again on a box that already has its score revealed. When you choose to reveal a new box, you don't know how many points you'll get, 
+                        but it could be worth many points! If you click a box that is already revealed, 
+                        the score may change slightly, but will stay about the same.
+                        <br><br> 
+                        <b>Here's an additional tip:</b><br>
+                        On the game boards, high scores often appear next to other high scores, 
+                        and low scores often appear next to other low scores! So a box's score depends on where it is 
+                        located on the board!
+                           
+                    </p> 
+
+                    <p id="sidebarInstructions-3" class="text-l" style="display:none">
+                            <b>Great job!</b><br> In the next rounds you can collect up to 5 stars 
+                            on each game board. The more points you collect in a round, the more stars you get for that round. The goal is to earn as many stars as possible!
+                            <br><br>
+                            <b>Do you understand everything?</b>  
+                    </p>
+
+                    <br>
+                    <button class='btn-primary text-xl' type="button" id="buttonInstructions">Continue</button>
+                </div>
+
+                <div id="sidebarContent" style="display:none">
+                    <div class="text-xl"><b>Stars collected:</b></div>
+
+
+                    <div id="stars">
+
+                    </div>
+                </div>
+                
+
+                <br><br><br>
+                <div class="text-l" id="bonusSidebarInstructions" style="display:none; padding:5px; border: 3px dashed orange;">
+                    <h2>Bonus round!</h2>
+                    This last round is a special bonus round. You can initially only reveal 15 boxes.
+                    <br><br>
+                    After that you'll answer a few questions and then you can continue playing as usual until all 25 clicks are used up.
+                </div>
+
+                <div class="text-l" id="bonusSidebarInstructions2" style="display:none; padding:5px; border: 3px dashed orange;">
+                    <!-- <h2>Bonus round!</h2> -->
+                    You can now finish this round as usual. Remember, you want to earn as many points as possible!
+                </div>
+
+            </div>
+
+            <div id="bonusProgress" style="display:none">
+
+                <h2>Bonus round</h2>
+                <div id="bonusInstructions">
+                    <br>
+                    <p class="text-l">Remaining boxes: <span id="bonusRemainingCounter">5</span></p>
+                    <br>
+                    <p class="text-xl">
+                        How many points will you get if you click here? What do you think?
+                    </p>
+
+                    <input id="valueSlider" type="range" min="0" max="50" step="1" oninput="onValueSliderChange(this.value)" onchange="onValueSliderChange(this.value)">
+                    <div class="text-l">
+                        A few
+                        <span class="spacer" style="width: 211px; display: inline-block;"></span> Many
+                    </div>
+
+
+                    <br><br>
+                    <p class="text-xl">How sure are you?</p>
+
+                    <br>
+
+                    <input id="confidenceSlider" type="range" min="0" max="10" step="1" oninput="onConfidenceSliderChange(this.value)" onchange="onConfidenceSliderChange(this.value)">
+
+                    <div class="text-l">
+                        Not at all
+                        <span class="spacer" style="width: 137px; display: inline-block;"></span> Completely
+                    </div>
+
+
+                    <br><br><br>
+                    <button class='btn-primary text-xl' type="button" name="button" id="buttonNextBonus">Continue</button>
+                </div>
+
+                <div id="bonusInstructions2" style="display:none">
+                    <br><br>
+                    <p class="text-xl">
+                        You can now reveal one of the five boxes. Which one do you choose?
+                    </p>
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+
+
+        <div id="page5finished" style="display:none; text-align: center;">
+
+            <div id="trials"> You have already explored this playing field. There are still 9 fields left.</div>
+
+            <br><br>
+
+            <div class="text-l" id="bonusIntroInstructions" style="display:none; padding:5px; border: 3px dashed orange;">
+                    <h2>Bonus round!</h2>
+                    This last round is a special bonus round. Here, you can initially only reveal 15 boxes. 
+                    After clicking 15 times, you'll see five boxes that haven't been revealed yet. 
+                    For each of these boxes you will estimate how many points you would get if you clicked on it. 
+                    See if you can get them all correct!
+                    <br><br>
+                    After that you'll answer a few questions and then you can continue playing as usual until all 25 clicks are used up.
+                </div>
+    
+                <br><br>
+
+
+            <button class='btn-primary text-xl' type="button" id="nextTrialButton">Continue</button>
+
+        </div>
+
+        <div id="page6" style="display:none; text-align: center;">
+            <div id="thanksforcompleting">
+                <h1>
+                    <font size="4">Thank you for participating.</font>
+                </h1>
+            </div>
+            <br>
+            <button class='btn-primary text-xl' type="button" id="goToPage7">Complete</button>
+
+        </div>
+
+        <div id="page7" style="display:none; text-align: center;">
+
+            <h2 class="text-xxl">Tester Notes:</h2>
+            <br>
+
+            <!-- <h3 class="text-xl">Option A: </h3>
+            <input type="radio" id="otpion-a-true" name="option-a" value="1"> <span class="text-l" style="padding-right: 50px">&nbsp;&nbsp; TRUE</span> 
+            <input type="radio" id="option-a-false" name="option-a" value="0"> <span class="text-l">&nbsp;&nbsp; FALSE</span>
+            <br> -->
+
+            <!-- <h3 class="text-xl">Notes: </h3> -->
+            <textarea name="tester-notes" id="tester-notes" cols="80" rows="4"></textarea>
+
+            <br><br>
+            <button class='btn-primary text-xl' type="button" id="finishButton">Save and Finish</button>
+
+        </div>
+
+        <!-- End screen -->
+        <div id="rt-end" class="route">
+            <h1>Thank you for your participation. Click the button below to complete.</h1>
+            <p id="debug-out"></p>
+            <br><br>
+            <!-- <button id="btn-app-restart" onclick="window.location.href = 'https://www.google.com'">Complete</button> -->
+            <button id="btn-app-restart" onclick="function() {console.log('redirect in rt-end')}">Complete</button>
+        </div>
+
+
+    </div>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/isrc-utils.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/gridSearch.js"></script>
+</body>
+
+</html>
