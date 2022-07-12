@@ -24,6 +24,15 @@
     <body>
       <script>
           var randCode = Math.round(Math.random()*10000);
+        window.onload = function() {
+    if (window.jQuery) {  
+        // jQuery is loaded  
+        alert("Yeah!");
+    } else {
+        // jQuery is not loaded
+        alert("Doesn't Work");
+    }
+}
       </script>
 <div id="container">
   <div id="content">
