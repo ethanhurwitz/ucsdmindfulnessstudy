@@ -1,6 +1,49 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+<script src="jsLibs/jquery-3-6-0-min.js"></script>
+<script src="jsLibs/ajax.js"></script>
+<script src="jsLibs/bootstrap-min.js"></script>
+<script src="jsLibs/TimTurkTools.js"></script>
+    <style>
+        #container {
+  width: 100%;
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  </body>
+#content {
+  flex: 0 0 600px;
+}
+    </style>  
+  </head>
+    <body>
+      <script>
+          var randCode = Math.round(Math.random()*10000);
+      </script>
+<div id="container">
+  <div id="content">
+Thank you for agreeing to participate in this research on mindfulness! This study is broken into several parts. Below, you will find individual 
+      links to complete each part. These parts should only take a few minutes each. Please make sure to be on a laptop or desktop computer,
+      these will not work properly on tablets or phones. Also, please make sure to fullscreen your browser window. You can do this by clicking on
+      the green button on the top left part of your window on a Mac computer, or the middle square on the top left if you are on Windows.<br><br>
+      
+      At the beginning of each, you will be asked to input an ID number.
+      Yours is: <b>${randCode}</b>.<br> Please copy/paste this code into the entry box at the beginning of each part. When you are done with a specific part,
+      you can close the new window it created, go back to this page, and click on a new link. Once you have completed all the parts from the links below,
+      the study is over!<br><br>
+      
+      <a href="https://ethanhurwitz.github.io/ucsdmindfulnessstudy/exps/Part1.html" target="_blank">Part 1</a><br><br>
+      <a href="https://ethanhurwitz.github.io/ucsdmindfulnessstudy/exps/Part2.html" target="_blank">Part 2</a><br><br>
+      <a href="https://ethanhurwitz.github.io/ucsdmindfulnessstudy/KWG/www/index.html" target="_blank">Part 3</a><br><br>
+      <a href="https://ucsd.co1.qualtrics.com/jfe/form/SV_5ioJOAVwiaCwSMe" target="_blank">Part 4</a><br><br>
+      <a href="https://ethanhurwitz.github.io/ucsdmindfulnessstudy/exps/Part5.html" target="_blank">Part 5</a><br><br>
+      <a href="https://ethanhurwitz.github.io/ucsdmindfulnessstudy/exps/Part6.html" target="_blank">Part 6</a><br><br>  
+      </div>
+      </div>
+    </body>
 </html>
