@@ -41,7 +41,7 @@
   <body>
     <script>
 
-var randCode = "BLI" + Math.round(Math.random()*1000) + "420" + Math.round(Math.random()*1000) + "CKET";
+// var randCode = "BLI" + Math.round(Math.random()*1000) + "420" + Math.round(Math.random()*1000) + "CKET";
 
 Shuffle = function (o) {
     for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
@@ -86,8 +86,8 @@ timeline.push(preload);
       if (preload_trial_data.success) {
         message = '<p>All files loaded successfully! Ready to continue.</p>';
       } else {
-        message = '<p>There was a problem loading one or more files.</p>'+
-          '<p>The files that failed to load are listed in the data for the previous trial.</p>';
+        message = '' //'<p>There was a problem loading one or more files.</p>'+
+          //'<p>The files that failed to load are listed in the data for the previous trial.</p>';
       }
       return message;
     },
@@ -301,37 +301,42 @@ timeline.push({
 
 // Demographics:
 
-// var demographics = {
-//   type: 'survey-multi-choice',
-//   questions: [
-//     {prompt: "<strong>Are you colorblind?</strong>", options: ["Yes, I am colorblind.","No, I am not colorblind"], values: ["Colorblind", "Not-Colorblind"], required: true, horizontal: false, name: 'Demo_Colorblind'}, 
-//     {prompt: "<strong>What gender do you identify as?</strong>", options: ["Male", "Female", "Additional gender category/identity not listed", "Prefer not to answer"], values: ["Male", "Female", "Other", "No-Answer"], required: true, horizontal: false, name: 'Demo_Gender'},
-//     {prompt: "<strong>What is your race/ethnicity?</strong>", options: ["Native American or Alaska Native", "Asian", "Pacific Islander", "Black or African American", "White", "Multi-racial / Multi-ethnic", "Other"], values: ["Native", "Asian", "Pacific-Islander", "Black", "White", "Multi", "Other"], required: true, horizontal: false, name: 'Demo_Race'},
-//     {prompt: "<strong>Do you identify as Hispanic or Latino/a?</strong>", options: ["Yes, I identify as either Hispanic or Latino/a","No, I do not identify as either Hispanic or Latino/a"], values: ["Hispanic", "Not-Hispanic"], required: true, horizontal: false, name: 'Demo_Hispanic'}
-//   ],
-//   data: {
-// 			type: "demographics"}
-// };
+var demographics = {
+  type: 'survey-multi-choice',
+  questions: [
+    {prompt: "<strong>Are you colorblind?</strong>", options: ["Yes, I am colorblind.","No, I am not colorblind"], values: ["Colorblind", "Not-Colorblind"], required: true, horizontal: false, name: 'Demo_Colorblind'}, 
+    {prompt: "<strong>What gender do you identify as?</strong>", options: ["Male", "Female", "Additional gender category/identity not listed", "Prefer not to answer"], values: ["Male", "Female", "Other", "No-Answer"], required: true, horizontal: false, name: 'Demo_Gender'},
+    {prompt: "<strong>What is your race/ethnicity?</strong>", options: ["Native American or Alaska Native", "Asian", "Pacific Islander", "Black or African American", "White", "Multi-racial / Multi-ethnic", "Other"], values: ["Native", "Asian", "Pacific-Islander", "Black", "White", "Multi", "Other"], required: true, horizontal: false, name: 'Demo_Race'},
+    {prompt: "<strong>Do you identify as Hispanic or Latino/a?</strong>", options: ["Yes, I identify as either Hispanic or Latino/a","No, I do not identify as either Hispanic or Latino/a"], values: ["Hispanic", "Not-Hispanic"], required: true, horizontal: false, name: 'Demo_Hispanic'},
+    {prompt: "<strong>Was your most recent mindfulness/meditation retreat silent?</strong>", options: ["Yes","No"], values: ["Silent", "Not_Silent"], required: true, horizontal: false, name: 'Demo_SilentRetreat'},
+    {prompt: "<strong>Have you ever used a psychedelic drug or plant medicine (e.g., psilocybin mushrooms, LSD, ayahuasca, DMT, mescaline)?</strong>", options: ["Yes","No"], values: ["Used", "Never_Used"], required: true, horizontal: false, name: 'Demo_Psychedelics'}	  
+  ],
+  data: {
+			type: "demographics"}
+};
 
-// timeline.push(demographics);
+timeline.push(demographics);
 
-// var demographics2 = {
-//   type: 'survey-text',
-//   questions: [
-//     {prompt: "What is your current age?", name: 'Age', rows: 1, columns: 2, required: true},
+var demographics2 = {
+  type: 'survey-text',
+  questions: [
+    {prompt: "Approximately how long have you been regularly practicing mindfulness/meditation? (Please specify days, months, or years)", name: 'Practice_Duration', rows: 1, columns: 12, required: true},  	  
+    {prompt: "Approximately how long has it been since your last mindfulness/meditation retreat? (Please specify days, months, or years)", name: 'Retreat_Recency', rows: 1, columns: 12, required: true},
+    {prompt: "If you have used a psychedelic or plant medicine, approximately how long ago was your most recent use? (Please specify days, months, or years)", name: 'Use_Recency', rows: 1, columns: 12, required: true},
+    {prompt: "What is your current age?", name: 'Age', rows: 1, columns: 2, required: true},	  
 //     {prompt: "In your own words, please tell us about what you have seen, and what you had to do, in this study so far:", name: 'ParticipationSummary', rows: 10, columns: 70, required: true}, 
 //     {prompt: "If you had to guess, what do you think this study was about?", name: 'MotivationGuess', rows: 10, columns: 70, required: true}, 
-//     {prompt: "During your participation, did you encounter any issues or technical difficulties?", name: 'TechnicalIssues', rows: 10, columns: 70, required: true}
-//   ],
-//   data: {
-// 			type: "demographics2"}
-// };
+    {prompt: "During your participation, did you encounter any issues or technical difficulties?", name: 'TechnicalIssues', rows: 10, columns: 70, required: true}
+  ],
+  data: {
+			type: "demographics2"}
+};
 
-// timeline.push(demographics2);
+timeline.push(demographics2);
 
 jsPsych.data.addProperties({userAgent: navigator.userAgent,
 	startTime: startTime,
-	randCode: randCode
+//	randCode: randCode
 });
 
 getPartID = function() {
@@ -346,7 +351,8 @@ jsPsych.init({
 			var endTime = new Date();
       var partID = JSON.parse(jsPsych.data.get().filter({type: 'partID'}).select('responses').values).partID;
 			jsPsych.data.addProperties({endTime: endTime,
-      partID: partID});
+      partID: partID,
+						   partID2: jsPsych.data.getURLVariable('ID')});
             // jsPsych.data.displayData();
 			 SaveData(jsPsych.data.get().csv()); // .json()?
     }
@@ -356,7 +362,7 @@ jsPsych.init({
   var dataToServer = {
     'id': getPartID(),
     'experimenter': 'Ethan',
-    'experimentName': 'functionalForm_pilot',
+    'experimentName': 'functionalForm_meditation_V1',
     'curData': curData
   }; 
 	
@@ -365,13 +371,15 @@ jsPsych.init({
     function(data) { 
 			var newDoc = document.open("text/html", "replace");
 			// newDoc.write("All done, thanks! To submit the HIT, paste this code into Turk: " + randCode);
-            newDoc.write("Your responses have been recorded. You may now close this page. Thank you!");
+            newDoc.write("Your responses have been recorded. This part of the study is now complete.<br>" +
+			"You may now return to the previous page and start the next part.");
 			newDoc.close();
     }
   ).fail(function(data) { 
 			var newDoc = document.open("text/html", "replace");
 			// newDoc.write("All done, thanks! To submit the HIT, paste this code into Turk: " + randCode);
-            newDoc.write("Your responses have been recorded. You may now close this page. Thank you!");
+            newDoc.write("Your responses have been recorded. This part of the study is now complete.<br>" +
+			"You may now return to the previous page and start the next part.");
 			newDoc.close();
 	});  
 
