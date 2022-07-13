@@ -197,7 +197,9 @@ function instructioncheck() {
  * onDocumentReady
  */
 document.addEventListener("DOMContentLoaded", function (event) {
-  document.getElementById("buttonAssignScenario").addEventListener("click", function () {
+//   document.getElementById("buttonAssignScenario").addEventListener("click", function () {
+  document.getElementById("btn-initial-form").addEventListener("click", function () {  
+
     assignScenario();
   });
 });
