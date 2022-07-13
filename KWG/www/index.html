@@ -45,6 +45,37 @@
             <!-- <h3 class="text-xl">Demographische Daten</h3> -->
             <h3 class="text-xl">Click to Begin</h3> <!--translation-->
             <br>
+            <form>
+                <fieldset data-role="Gender" data-type="horizontal">
+                    <!-- <legend class="text-l">Geschlecht:</legend> -->
+                    <legend class="text-l">Gender:</legend> <!--translation-->
+                    <input type="radio" name="demographics-gender" id="Male">
+                    <!-- <label for="Male" class="text-l">&nbsp; Männlich &nbsp; </label> -->
+                    <label for="Male" class="text-l">&nbsp; Male &nbsp; </label> <!--translation-->
+                    <input type="radio" name="demographics-gender" id="Female">
+                    <!-- <label for="Female" class="text-l">&nbsp; Weiblich &nbsp; </label> -->
+                    <label for="Female" class="text-l">&nbsp; Female &nbsp; </label> <!--translation-->
+                </fieldset> <br><br>
+                <fieldset data-role="Birthdate" data-type="horizontal">
+                    <!-- <legend class="text-l">Geburtsdatum:</legend> -->
+                    <legend class="text-l">Date of birth:</legend> <!--translation-->
+                    <input type="date" id="birthDate" class="form-control">
+                </fieldset><br><br>
+                <!-- <fieldset data-role="Grade" data-type="horizontal">
+                     <legend class="text-l">Klasse:</legend> comment out entire line
+                    <legend class="text-l">Class:</legend> comment out: translation
+                    <select id="gradeSelect" class="text-l">
+                        <option value="0" selected="selected">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                      </select>
+                </fieldset> -->
+                <br>
+            </form>
             <button class='btn-primary text-xl' type="button" name="button" id="buttonAssignScenario">Start</button>
         </div>        
 
