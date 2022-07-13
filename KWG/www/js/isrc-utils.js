@@ -43,6 +43,7 @@ var isrcUtils = {
 
         switch (id) {
             case 'deviceready':
+                console.log("test receivedEvent") // added
                 this.Setup();
                 isrcUtils.SetHandlers();
                 break;
@@ -104,7 +105,8 @@ var isrcUtils = {
 
         isrcUtils.buttons[1] = document.getElementById('btn-app-restart');
         if (isrcUtils.buttons[1])
-            isrcUtils.buttons[1].addEventListener('click', isrcUtils.Restart);
+            // isrcUtils.buttons[1].addEventListener('click', isrcUtils.Restart); NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE 
+            isrcUtils.buttons[1].addEventListener('click', isrcUtils.Finish);
 
         isrcUtils.buttons[2] = document.getElementById('stats-records');
         if (isrcUtils.buttons[2])
@@ -254,7 +256,20 @@ var isrcUtils = {
      * Restart()
      */
     Restart: function () {
-        location.reload();
+        console.log("calling restart");
+        // location.reload();
+    },
+
+    /**
+     * NEW TEST CODE NEW TEST CODE()
+     * NEW TEST CODE NEW TEST CODE()
+     * NEW TEST CODE NEW TEST CODE()
+     * NEW TEST CODE NEW TEST CODE()
+     * NEW TEST CODE NEW TEST CODE()
+     */
+    Finish: function () {
+        console.log("Finish fxn");
+        window.location.href = 'https://www.google.com';
     },
 
 
@@ -300,7 +315,7 @@ var isrcUtils = {
         var dataToServer = {
           'id': isrcUtils.data.uid,
           'experimenter': 'Ethan',
-          'experimentName': 'kwg_pilot',
+          'experimentName': 'kwg_meditation_v1',
           'curData': JSON.stringify(curData)
         };
 
@@ -308,8 +323,8 @@ var isrcUtils = {
             console.log("done saving")
             };
           
-      //$.post("https://madlab-research.ucsd.edu/savePentagon.php",
-      $.post("http://localhost:8000/save.php",
+      $.post("https://bradylab.ucsd.edu/turk/save.php",
+    //   $.post("http://localhost:8000/save.php",
           dataToServer,
           FunctionWhenDoneSaving
         ).fail(console.log("failed to save"))
