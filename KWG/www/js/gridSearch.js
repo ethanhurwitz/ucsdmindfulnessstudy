@@ -94,31 +94,31 @@ var condition,
 //Access the MySQL database and returns scenario id with a condition numnber, adding the now() date time to the start time field and marking the specific scenario as completed
 function assignScenario() {
   //Extract gender and birthdate
-  if (document.getElementById('Male').checked) {
-    gender = "Male";
-  }
-  if (document.getElementById('Female').checked) {
-    gender = "Female";
-  }
+      // if (document.getElementById('Male').checked) {
+      //   gender = "Male";
+      // }
+      // if (document.getElementById('Female').checked) {
+      //   gender = "Female";
+      // }
 
-  var dob = document.getElementById('birthDate').value;
+      // var dob = document.getElementById('birthDate').value;
   // grade = parseInt(document.getElementById('gradeSelect').value);
 
 
   //Check if any data missing
-  var checksum = (typeof (gender) !== 'undefined') && dob != null && dob != "";
-  if (checksum) {
+      // var checksum = (typeof (gender) !== 'undefined') && dob != null && dob != "";
+  if (true) {
 
-    age = getAge(dob);
+        // age = getAge(dob);
 
-    var counter = 0;
-    if (age <= 9) {
-      counter = getCounter("gridsearch-counter-1");
-    } else if (age > 9 && age < 18) {
-      counter = getCounter("gridsearch-counter-2");
-    } else if (age > 18) {
-      counter = getCounter("gridsearch-counter-3");
-    }
+        // var counter = 0;
+        // if (age <= 9) {
+        //   counter = getCounter("gridsearch-counter-1");
+        // } else if (age > 9 && age < 18) {
+        //   counter = getCounter("gridsearch-counter-2");
+        // } else if (age > 18) {
+        //   counter = getCounter("gridsearch-counter-3");
+        // }
 
     // condition = counter % 2; //just set to 0 or 1 for smooth or rough. 0 for smooth
     condition = 0 //only smooth
@@ -331,12 +331,12 @@ function onButtonFinishPressed() {
   //   return alert("Fill option A!");
   // }
 
-  var notes = document.getElementById("tester-notes").value;
+      var notes = document.getElementById("tester-notes").value;
 
-  testerNotes = {
-    // "option-a": parseInt(optionA.value),
-    "notes": notes
-  };
+      testerNotes = {
+        // "option-a": parseInt(optionA.value),
+        "notes": notes
+      };
 
   senddata();
 }
@@ -833,8 +833,8 @@ function senddata() { //TODO: set up for tablet
     'searchHistory': searchHistory,
     'bonusLevel': bonusCollect,
     'starArray': starArray,
-    'age': age,
-    'gender': gender,
+    // 'age': age,
+    // 'gender': gender,
     // 'grade': grade,
     'testerNotes': testerNotes
   };
