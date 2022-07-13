@@ -87,7 +87,7 @@ var condition,
   xout,
   yout,
   zout,
-  optimaGuess;
+  optimaGuess,
   partID;
 
 
@@ -104,11 +104,13 @@ function assignScenario() {
 
 //   var dob = document.getElementById('birthDate').value;
   // grade = parseInt(document.getElementById('gradeSelect').value);
+  
+  partID =  document.getElementById("uid-input").value;
 
   //Check if any data missing
-//   var checksum = (typeof (gender) !== 'undefined') && dob != null && dob != "";
-//   if (checksum) {
-    if (true) {
+  var checksum = (typeof (partID) !== 'undefined');
+  if (checksum) {
+//     if (true) {
 
 //     age = getAge(dob);
 
@@ -338,8 +340,6 @@ function onButtonFinishPressed() {
 //     // "option-a": parseInt(optionA.value),
 //     "notes": notes
 //   };
-  
-  partID = document.getElementById("uid-input").value;
 
   senddata();
 }
