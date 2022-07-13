@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>SONA experiment</title>
+<title>UCSD Study Part 6</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -47,7 +47,7 @@
   <body>
     <script>
 
-var randCode = "COG" + Math.round(Math.random()*1000) + "420" + Math.round(Math.random()*1000) + "FLEX";
+// var randCode = "COG" + Math.round(Math.random()*1000) + "420" + Math.round(Math.random()*1000) + "FLEX";
 
 Shuffle = function (o) {
     for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
@@ -61,7 +61,7 @@ var timeline = [];
 var partID = {
   type: 'survey-text',
   questions: [
-    {prompt: "Enter participant ID", name: 'partID', rows: 1, columns: 12, required: true}
+    {prompt: "Enter ID", name: 'partID', rows: 1, columns: 12, required: true}
   ],
   data: {
 			type: "partID"}
@@ -231,7 +231,7 @@ timeline.push(demographics2);
 
 jsPsych.data.addProperties({userAgent: navigator.userAgent,
 	startTime: startTime,
-	randCode: randCode
+// 	randCode: randCode
 });
 
 getPartID = function() {
@@ -245,7 +245,8 @@ jsPsych.init({
       on_finish: function () {
 			var endTime = new Date();
 			jsPsych.data.addProperties({endTime: endTime,
-        partID: JSON.parse(jsPsych.data.get().filter({type: 'partID'}).select('responses').values).partID});
+        partID: JSON.parse(jsPsych.data.get().filter({type: 'partID'}).select('responses').values).partID,
+						   partID2: jsPsych.data.getURLVariable('ID')});
             // jsPsych.data.displayData();
 			 SaveData(jsPsych.data.get().csv()); // .json()?
     }
@@ -255,7 +256,7 @@ jsPsych.init({
   var dataToServer = {
     'id': getPartID(),
     'experimenter': 'Ethan',
-    'experimentName': 'Jumps_pilot',
+    'experimentName': 'Jumps_meditation_v1',
     'curData': curData
   }; 
 
@@ -264,13 +265,15 @@ jsPsych.init({
     function(data) { 
 			var newDoc = document.open("text/html", "replace");
 			// newDoc.write("All done, thanks! To submit the HIT, paste this code into Turk: " + randCode);
-            newDoc.write("Your responses have been recorded. You may now close this page. Thank you!");
+            newDoc.write("Your responses have been recorded. This part of the study is now complete.<br>" +
+			"You may now return to the previous page and start the next part.");
 			newDoc.close();
     }
   ).fail(function(data) { 
 			var newDoc = document.open("text/html", "replace");
 			// newDoc.write("All done, thanks! To submit the HIT, paste this code into Turk: " + randCode);
-            newDoc.write("Your responses have been recorded. You may now close this page. Thank you!");
+            newDoc.write("Your responses have been recorded. This part of the study is now complete.<br>" +
+			"You may now return to the previous page and start the next part.");
 			newDoc.close();
 	});  
 
