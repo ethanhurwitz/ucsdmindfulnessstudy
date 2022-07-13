@@ -29,8 +29,8 @@ var fullurl = document.location.href, //url of incoming MTurk worker
   scale = [],
   //Color parameters for heatmap
   colors = ['#fff7ec', '#fee8c8', '#fdd49e', '#fdbb84', '#fc8d59', '#ef6548', '#d7301f', '#b30000', '#7f0000'],
-  heatmapColor = d3.scale.linear().domain(d3.range(0, 50, 50.0 / (colors.length - 1))).range(colors);
-//   testerNotes = {};
+  heatmapColor = d3.scale.linear().domain(d3.range(0, 50, 50.0 / (colors.length - 1))).range(colors),
+  testerNotes = {};
 
 //data collectors for search history
 var tscollect = [],
@@ -76,9 +76,9 @@ if (localStorage.getItem("gridsearch-counter-3") === null)
 
 //Declare variables not yet assigned 
 var condition,
-//   gender,
-//   age = 0,
-//   birthDate,
+  gender,
+  age = 0,
+  birthDate,
   // grade,
   searchHistory,
   initialEnvs,
@@ -87,41 +87,38 @@ var condition,
   xout,
   yout,
   zout,
-  optimaGuess,
-  partID;
+  optimaGuess;
 
 
 
 //Access the MySQL database and returns scenario id with a condition numnber, adding the now() date time to the start time field and marking the specific scenario as completed
 function assignScenario() {
   //Extract gender and birthdate
-//   if (document.getElementById('Male').checked) {
-//     gender = "Male";
-//   }
-//   if (document.getElementById('Female').checked) {
-//     gender = "Female";
-//   }
+  if (document.getElementById('Male').checked) {
+    gender = "Male";
+  }
+  if (document.getElementById('Female').checked) {
+    gender = "Female";
+  }
 
-//   var dob = document.getElementById('birthDate').value;
+  var dob = document.getElementById('birthDate').value;
   // grade = parseInt(document.getElementById('gradeSelect').value);
-  
-  partID =  document.getElementById("uid-input").value;
+
 
   //Check if any data missing
-  var checksum = (typeof (partID) !== 'undefined');
+  var checksum = (typeof (gender) !== 'undefined') && dob != null && dob != "";
   if (checksum) {
-//     if (true) {
 
-//     age = getAge(dob);
+    age = getAge(dob);
 
-//     var counter = 0;
-//     if (age <= 9) {
-//       counter = getCounter("gridsearch-counter-1");
-//     } else if (age > 9 && age < 18) {
-//       counter = getCounter("gridsearch-counter-2");
-//     } else if (age > 18) {
-//       counter = getCounter("gridsearch-counter-3");
-//     }
+    var counter = 0;
+    if (age <= 9) {
+      counter = getCounter("gridsearch-counter-1");
+    } else if (age > 9 && age < 18) {
+      counter = getCounter("gridsearch-counter-2");
+    } else if (age > 18) {
+      counter = getCounter("gridsearch-counter-3");
+    }
 
     // condition = counter % 2; //just set to 0 or 1 for smooth or rough. 0 for smooth
     condition = 0 //only smooth
@@ -197,9 +194,7 @@ function instructioncheck() {
  * onDocumentReady
  */
 document.addEventListener("DOMContentLoaded", function (event) {
-//   document.getElementById("buttonAssignScenario").addEventListener("click", function () {
-  document.getElementById("btn-initial-form").addEventListener("click", function () {  
-
+  document.getElementById("buttonAssignScenario").addEventListener("click", function () {
     assignScenario();
   });
 });
@@ -336,12 +331,12 @@ function onButtonFinishPressed() {
   //   return alert("Fill option A!");
   // }
 
-//   var notes = document.getElementById("tester-notes").value;
+  var notes = document.getElementById("tester-notes").value;
 
-//   testerNotes = {
-//     // "option-a": parseInt(optionA.value),
-//     "notes": notes
-//   };
+  testerNotes = {
+    // "option-a": parseInt(optionA.value),
+    "notes": notes
+  };
 
   senddata();
 }
@@ -838,11 +833,10 @@ function senddata() { //TODO: set up for tablet
     'searchHistory': searchHistory,
     'bonusLevel': bonusCollect,
     'starArray': starArray,
-    'partID': partID
-//     'age': age,
-//     'gender': gender,
+    'age': age,
+    'gender': gender,
     // 'grade': grade,
-//     'testerNotes': testerNotes
+    'testerNotes': testerNotes
   };
 
   incrementCounter();
@@ -851,8 +845,7 @@ function senddata() { //TODO: set up for tablet
   console.log(saveDataArray);
 
   isrcUtils.SaveAndEnd(saveDataArray);
-//   clickStart('page7', 'rt-end');
-    clickStart('page6', 'rt-end');
+  clickStart('page7', 'rt-end');
 
 }
 
