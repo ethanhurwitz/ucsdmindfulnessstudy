@@ -47,7 +47,7 @@
   <body>
     <script>
 
-var randCode = "COG" + Math.round(Math.random()*1000) + "420" + Math.round(Math.random()*1000) + "FLEX";
+// var randCode = "COG" + Math.round(Math.random()*1000) + "420" + Math.round(Math.random()*1000) + "FLEX";
 
 Shuffle = function (o) {
     for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
@@ -361,7 +361,7 @@ var preloadImages = [];
 
 jsPsych.data.addProperties({userAgent: navigator.userAgent,
 	startTime: startTime,
-	randCode: randCode
+// 	randCode: randCode
 });
 
 getPartID = function() {
