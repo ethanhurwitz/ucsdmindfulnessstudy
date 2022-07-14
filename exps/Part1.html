@@ -310,7 +310,7 @@ var demographics = {
     {prompt: "<strong>Do you identify as Hispanic or Latino/a?</strong>", options: ["Yes, I identify as either Hispanic or Latino/a","No, I do not identify as either Hispanic or Latino/a"], values: ["Hispanic", "Not-Hispanic"], required: true, horizontal: false, name: 'Demo_Hispanic'},
     {prompt: "<strong>Have you ever been on a mindfulness/meditation retreat?</strong>", options: ["Yes","No"], values: ["Retreat", "No_Retreat"], required: true, horizontal: false, name: 'Demo_Retreat'},	  
     {prompt: "<strong>Was your most recent mindfulness/meditation retreat silent?</strong>", options: ["Yes","No", "I have never been on a retreat"], values: ["Silent", "Not_Silent", "No_Retreat"], required: true, horizontal: false, name: 'Demo_SilentRetreat'},
-    {prompt: "<strong>Have you ever used a psychedelic drug or plant medicine (e.g., psilocybin mushrooms, LSD, ayahuasca, DMT, mescaline)?</strong>", options: ["Yes","No"], values: ["Used", "Never_Used"], required: true, horizontal: false, name: 'Demo_Psychedelics'}	  
+    {prompt: "<strong>Have you ever used a psychedelic drug or plant medicine (e.g., psilocybin mushrooms, LSD, ayahuasca, DMT, mescaline)?</strong>", options: ["Yes","No"], values: ["Used", "Never_Used"], required: false, horizontal: false, name: 'Demo_Psychedelics'}  
   ],
   data: {
 			type: "demographics"}
@@ -321,9 +321,14 @@ timeline.push(demographics);
 var demographics2 = {
   type: 'survey-text',
   questions: [
-    {prompt: "Approximately how long have you been regularly practicing mindfulness/meditation? (Please specify days, months, or years)", name: 'Practice_Duration', rows: 1, columns: 12, required: true},  	  
+    {prompt: "How did you find out about this study? If it was sent to you, from where / who?", name: 'Recruitment_Source', rows: 2, columns: 15, required: true},  	  
+    {prompt: "What is your primary contemplative or mindfulness practice (e.g., vipassana meditation, zen meditation, yoga, etc.)?", name: 'Primary_Practice', rows: 1, columns: 15, required: true},  	  	  
+    {prompt: "Approximately how long have you been regularly practicing your primary mindfulness/meditation practice? (Please specify days, months, or years)", name: 'Practice_Duration', rows: 1, columns: 12, required: true},
+    {prompt: "To the best of your ability, approximately how many hours would you say you have engaged with your primary mindfulness/meditation practice?", name: 'Practice_Duration_Hours', rows: 1, columns: 12, required: true},  	  	  
+    {prompt: "How many mindfulness/meditation retreats have you been on?", name: 'Retreat_Total', rows: 1, columns: 5, required: true},  	  	  
+    {prompt: "How many of those mindfulness/meditation retreats were silent?", name: 'Retreat_Silent_Total', rows: 1, columns: 5, required: true},  	  	  	  
     {prompt: "Approximately how long has it been since your last mindfulness/meditation retreat? (Please specify days, months, or years)", name: 'Retreat_Recency', rows: 1, columns: 12, required: true},
-    {prompt: "If you have used a psychedelic or plant medicine, approximately how long ago was your most recent use? (Please specify days, months, or years)", name: 'Use_Recency', rows: 1, columns: 12, required: true},
+    {prompt: "If you have used a psychedelic drug or plant medicine, approximately how long ago was your most recent use? (Please specify days, months, or years)", name: 'Use_Recency', rows: 1, columns: 12, required: true},
     {prompt: "What is your current age?", name: 'Age', rows: 1, columns: 2, required: true},	  
 //     {prompt: "In your own words, please tell us about what you have seen, and what you had to do, in this study so far:", name: 'ParticipationSummary', rows: 10, columns: 70, required: true}, 
 //     {prompt: "If you had to guess, what do you think this study was about?", name: 'MotivationGuess', rows: 10, columns: 70, required: true}, 
