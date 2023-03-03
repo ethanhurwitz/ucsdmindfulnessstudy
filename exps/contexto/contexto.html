@@ -25,7 +25,8 @@
   // Create Data Variable
   var data = {
 //     'id': jsPsych.data.getURLVariable('id'),
-    'id': [],    
+    'partID': [],
+    'partID2': jsPsych.data.getURLVariable('ID'),	  
     'date': new Date(),
     'data': [
   ]
@@ -568,7 +569,7 @@ let close_enough_on = 0;
     $("#root").hide()
   })();
     var begin = function() {
-      data.id.push($(".id_input").text());
+      data.partID.push($(".id_input").text());
       $("#root").show();
       $(".consent").hide();
     };
