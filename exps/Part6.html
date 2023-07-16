@@ -229,6 +229,17 @@ timeline.push(jumpsSorting);
 
 // timeline.push(demographics2);
 
+var email = {
+  type: 'survey-text',
+  questions: [
+    {prompt: "If you would like to be entered in the iPad raffle, <br>please provide an email address that we can contact in case you win:", name: 'Age', rows: 1, columns: 35, required: false}
+  ],
+  data: {
+			type: "email"}
+};
+
+timeline.push(email);	    
+
 jsPsych.data.addProperties({userAgent: navigator.userAgent,
 	startTime: startTime,
 // 	randCode: randCode
