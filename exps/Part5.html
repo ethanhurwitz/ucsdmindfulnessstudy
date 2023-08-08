@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>UCSD Study Part 5</title>
+<title>UCSD Study Part 6</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -21,7 +21,8 @@
 <script src="../jsPsych/jspsych-6.1.0/plugins/jspsych-survey-multi-select.js"></script>
 <script src="../jsPsych/jspsych-6.1.0/plugins/jspsych-video-button-response.js"></script>
 <script src="../jsPsych/jspsych-6.1.0/plugins/jspsych-survey-text.js"></script>
-<script src="../jsPsych/jspsych-6.1.0/plugins/jspsych-free-sort_update2.js"></script>
+<!-- <script src="../jsPsych/jspsych-6.1.0/plugins/jspsych-free-sort_update2.js"></script> -->
+<script src="../jsPsych/jspsych-6.1.0/plugins/jspsych-free-sort-NEW_updated2.js"></script>
 <script src="../jsPsych/jspsych-6.1.0/plugins/jspsych-survey-html-form.js"></script>
 <!--audio record 1-->
 <script src="../jsPsych/jspsych-6.1.0/plugins/jspsych-html-audio-response_modified.js"></script>
@@ -46,7 +47,7 @@
   <body>
     <script>
 
-// var randCode = "RAT" + Math.round(Math.random()*1000) + "420" + Math.round(Math.random()*1000);
+// var randCode = "COG" + Math.round(Math.random()*1000) + "420" + Math.round(Math.random()*1000) + "FLEX";
 
 Shuffle = function (o) {
     for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
@@ -68,236 +69,135 @@ var partID = {
 
 timeline.push(partID);
 
-// var consent = {
-//   type: 'html-button-response',
-//   stimulus: 'Please read the consent form below and click "I agree" below to consent and begin the study.'+
-//   '<iframe src="../151866_AdultConsent_clean.pdf#toolbar=0" width="100%" height="500px">'+
-//     '</iframe>',
-//   choices: ["I agree"],
-//   data: {exp: 'RAT',
-//       type: "consent"}
-// };
+// JUMPS
+// JUMPS
+// JUMPS
+// JUMPS
+// JUMPS
+// JUMPS
+// JUMPS
+// JUMPS
+// JUMPS
+// JUMPS
+// JUMPS
+// JUMPS
+// JUMPS
+// JUMPS
+// JUMPS
+// JUMPS
+// JUMPS
+// JUMPS
 
-// timeline.push(consent);
+// jumpsStock2 = [
+// "monkey", "lion", "elephant", "giraffe", "panda",
+// "tiger", "bear", "bird", "dog", "cat", "fish",
+// "horse", "snake", "cow", "mouse", "rat", "deer",
+// "fox", "rabbit", "sloth"
+// ];
 
-// RAT TRIALS
-// RAT TRIALS
-// RAT TRIALS
-// RAT TRIALS
-// RAT TRIALS
-// RAT TRIALS
-// RAT TRIALS
-// RAT TRIALS
-// RAT TRIALS
-// RAT TRIALS
-// RAT TRIALS
-// RAT TRIALS
-// RAT TRIALS
-// RAT TRIALS
-// RAT TRIALS
-// RAT TRIALS
-// RAT TRIALS
-// RAT TRIALS
-ratTrials = [];
-
-var introRAT = {
-type: 'html-keyboard-response',
-stimulus: "On each of the following pages, you will be shown 3 target words.<br>"+
-"Your goal is to attempt to generate a fourth word which, when combined with <br><b>each of the three target words</b>, will result in word pairs that make up a common compound word or phrase.<br>"+
-`Let's look at an example. For the target words:<br><br>`+
-"cottage, swiss, cake<br><br>"+
-`the 4th word would be <b>cheese</b>. This would create the word pairs 'cottage cheese,' 'swiss cheese,' and 'cheesecake.' <br><br>`+
-"Here's how to play: we will be recording your responses, to make things easier for you.<br>"+
-"All you have to do is think out loud while considering different options.<br>"+
-'You will have <b>1 minute</b> for each trial. If you arrive at the answer before then, press the <b>SPACEBAR</b> to immediately proceed.<br>'+
-"Only push the spacebar if you have arrived at your final answer and want to move on. YOU CANNOT GO BACK.<br>"+
-"We will first start with a few training trials so you can get the hang of it.<br>"+
-"You will have to grant the browser mic access. Be sure to click back to the center of the page after you click accept, otherwise the spacebar won't work!<br><br><br><br>",
-choices: ['space'],
-prompt: "<p>Press spacebar to continue</p>",
-data: {exp: 'RAT',
-  type: 'RAT_Instr'}
+var jumps1Instr = {
+	type: 'html-button-response',
+	stimulus: `There is this special machine called a ploosner. What makes it special is that when the<br>`+
+    `ploosner is near a certain animal, the ploosner lights up! However, we're not sure what animal makes it light up.<br>`+
+    `<b>We need your help today coming up with ideas for what animal may make the machine activate and light up.</b><br><br>`,
+	choices: ["Continue"],
+	data: {type: "jumps1Instr",
+            exp: 'jumps'}
 };
 
-ratTrials.push(introRAT)
+timeline.push(jumps1Instr);
 
-var wordTriads1 = [['chocolate', 'fortune', 'tin'],
-['safety', 'cushion', 'point'],
-['dust', 'cereal', 'fish'],
-['print', 'berry', 'bird'],
-['widow', 'bite', 'monkey'],
-['date', 'alley', 'fold'],
-['wagon', 'break', 'radio'],
-['hound', 'pressure', 'shot'],
-['coin', 'quick', 'spoon'],
-['demon', 'limit', 'way'],
-['broken', 'clear', 'eye'],
-['pike', 'coat', 'signal'],
-['lift', 'card', 'mask'],
-['due', 'life', 'tense'],
-['strike', 'same', 'tennis'],
-['time', 'hair', 'stretch'],
-['pine', 'crab', 'sauce'],
-['speak', 'money', 'street'],
-['mail', 'board', 'lung'],
-['water', 'tobacco', 'stove'],
-['tooth', 'potato', 'heart'],
-['chest', 'car', 'store'],
-['land', 'hand', 'house'],
-['high', 'book', 'sour'],
-['bump', 'egg', 'step']];
-
-var wordTriads1Shuffled = Shuffle(wordTriads1);
-
-// for (i=0; i < wordTriads1.length; i++){
-//     wordTriads1Shuffled.push(Shuffle(wordTriads1[i]))
-// };
-
-var exampleTriads = [
-    ['dew', 'comb', 'bee'],
-['loser', 'throat', 'spot'],
-['night', 'wrist', 'stop'],
-['rocking', 'wheel', 'high']
+var jumpsStock = [
+"bunny", "cat", "dog", "bird",
+"dolphin", "turtle", "fish",
+"cow", "elephant", "zebra", "giraffe"
 ];
 
-var exampleTriadsAnswers = ['honey', 'sore', 'watch', 'horse'];
-
-
-for (i=0; i < exampleTriads.length; i++){
-    ratTrials.push({
-      type: 'html-audio-response_modified',
-    //   stimulus: `${wordTriadsShuffled[i][0]}, ${wordTriadsShuffled[i][1]}, ${wordTriadsShuffled[i][2]}`,
-      stimulus: `This is a training trial. Find the 4th word that pairs with each of the 3 target words.<br><br>The words for this trial are:<br><br><br><b>${exampleTriads[i][0]}, ${exampleTriads[i][1]}, ${exampleTriads[i][2]}</b><br><br><br>`,
-      buffer_length: 60000,
-      allow_playback: true, // specifically to test if it's working, though double check this is okay.
-      manually_end_recording_key: ['space'],
-      stimulus_duration: 60000,
-      wait_for_mic_approval: true,
-      prompt: 'You will be able to replay your recording on these trials only.<br>'+ //
-      'Please do so to make sure your audio is recording properly.<br>'+ //
-      'If you finish early, press the spacebar to continue.',
-      data: {exp: 'RAT',
-        type: `RAT_example${i+1}`,
-        words: [`${exampleTriads[i][0]}, ${exampleTriads[i][1]}, ${exampleTriads[i][2]}`]}
-    })
-
-    ratTrials.push({
-      type: 'html-keyboard-response',
-      stimulus: `The correct answer was: <b>${exampleTriadsAnswers[i]}`,
-      choices: ['space'],
-      prompt: "<p>Press spacebar to continue</p>",
-      data: {exp: 'RAT',
-        type: `RAT_example${i+1}_Answer`}
-      })
-};
-
-var AC_RAT1 = {
-  type: 'survey-multi-choice',
+timeline.push({
+  type: 'survey-text',
   questions: [
-    {prompt: "On the final example trial page, which of the following words did you see?", options: ["moon","wheel", "day", "sore"], values: [0,1,0,0], required: true, horizontal: false, name: 'AC_RAT1'}
+    {prompt: `What animal do you think made the machine light up?`, name: 'value', rows: 1, columns: 10, required: true}
   ],
-  data: {exp: 'RAT',
-			type: "AC_RAT"}
-};
-
-ratTrials.push(AC_RAT1)
-
-ratTrials.push({
-type: 'html-keyboard-response',
-stimulus: "Great! Now that you've got the hang of it, let's begin. You will no longer be shown the correct answer after each trial.<br>The first page will be another example. "+
-"All pages to follow will be real trials!<br><br>When you're ready to begin, press the spacebar.",
-choices: ['space'],
-prompt: "",
-data: {exp: 'RAT',
-  type: 'RAT_Instr2'}
+  data: {
+			trialType: `jumps1response`,
+            type: `jumps1response1`,
+            exp: 'jumps'}
 });
 
-ratTrials.push({
-      type: 'html-audio-response_modified',
-      stimulus: `This is a training trial. Find the 4th word that pairs with each of the 3 target words.<br><br>The words for this trial are:<br><br><br><b>fountain, baking, pop</b><br><br><br>`,
-      buffer_length: 180000,
-      allow_playback: false,
-      manually_end_recording_key: ['space'],
-      stimulus_duration: 180000,
-      wait_for_mic_approval: true,
-      prompt: "When you're ready to begin the real trials, press the spacebar to continue.",
-      data: {exp: 'RAT',
-			type: "RAT_example5",
-            words: 'fountain, baking, pop'}
-    });
-
-// for (i=0; i < wordTriads.length; i++){
-for (i=0; i < wordTriads1Shuffled.length; i++){
-    ratTrials.push({
-      type: 'html-audio-response_modified',
-      stimulus: 'Find the 4th word that pairs with each of the 3 target words below.<br><br>' + 
-      `<b>${wordTriads1Shuffled[i][0]}, ${wordTriads1Shuffled[i][1]}, ${wordTriads1Shuffled[i][2]}</b><br><br><br>`,
-    //   stimulus: `${wordTriads[i][0]}, ${wordTriads[i][1]}, ${wordTriads[i][2]}`,
-      buffer_length: 60000,
-      allow_playback: false,
-      manually_end_recording_key: ['space'],
-      stimulus_duration: 60000,
-      wait_for_mic_approval: true,
-      prompt: 'If you finish early, press the spacebar to continue.<br><br>',
-      data: {exp: 'RAT',
-        type: `RAT${i+1}`,
-        words: [`${wordTriads1Shuffled[i][0]}, ${wordTriads1Shuffled[i][1]}, ${wordTriads1Shuffled[i][2]}`]}
-    })
-};
-
-// RATs2
-// RATs2
-// RATs2
-// RATs2
-// RATs2
-// RATs2
-// RATs2
-// RATs2
-// RATs2
-
-var wordTriads2 = [
-    ['man', 'fox', 'peep'],
-    ['flower', 'scout', 'friend'],
-    ['cream', 'skate', 'water'],
-    ['light', 'stick', 'birthday'],
-    ['right', 'cat', 'carbon'],
-    ['waffle', 'lung', 'tire'],
-    ['wave', 'lamp', 'dry'],
-    ['blanket', 'ball', 'house'],
-    ['sore', 'shoulder', 'sweat'],
-    ['note', 'dive', 'chair'],
-    ['over', 'plant', 'horse'],
-    ['reading', 'service', 'stick'],
-    ['gear', 'hunter', 'hammer'],
-    ['house', 'sandwich', 'golf'],
-    ['cast', 'side', 'jump']
-];
-
-
-var wordTriads2Shuffled = Shuffle(wordTriads2);
-
-
-for (i=0; i < wordTriads2Shuffled.length; i++){
-    ratTrials.push({
-      type: 'html-audio-response_modified',
-      stimulus: 'Find the 4th word that pairs with each of the 3 target words below.<br><br>' + 
-      `<b>${wordTriads2Shuffled[i][0]}, ${wordTriads2Shuffled[i][1]}, ${wordTriads2Shuffled[i][2]}</b><br><br><br>`,
-    //   stimulus: `${wordTriads[i][0]}, ${wordTriads[i][1]}, ${wordTriads[i][2]}`,
-      buffer_length: 60000,
-      allow_playback: false,
-      manually_end_recording_key: ['space'],
-      stimulus_duration: 60000,
-      wait_for_mic_approval: true,
-      prompt: 'If you finish early, press the spacebar to continue.<br><br>',
-      data: {exp: 'RAT',
-        type: `RAT_set2_${i+1}`,
-        words: [`${wordTriads2Shuffled[i][0]}, ${wordTriads2Shuffled[i][1]}, ${wordTriads2Shuffled[i][2]}`]}
-    })
-};
-
-for(i=0; i < ratTrials.length; i++) {
-    timeline.push(ratTrials[i])
+for (i=0; i<4; i++) {
+    timeline.push({
+  type: 'survey-text',
+  questions: [
+    {prompt: `Okay, now you get to make another guess! What animal do you think made the machine light up?`, name: 'value', rows: 1, columns: 10, required: true}
+  ],
+  data: {
+			trialType: `jumps1response`,
+            type: `jumps1response${i+2}`,
+            exp: 'jumps'}
+})
 }
+
+var jumps1sortInstr =  {
+	type: 'html-button-response',
+	stimulus: `For this next part, we are going to look at the plans for a new zoo that's under construction.<br>`+
+    `There are a number of animals the zoo knows they will have, but they haven't planned the layout<br>`+
+    `for the exhibits yet. This is where you come in! <b><br><br>We want you to help them by arranging the layout on<br>`+
+    `the next page in a way such that the animals that are the most similar are close together and the animals<br>`+
+    `that are really different are farther apart</b>.<br><br>`+
+    `When you're ready, click continue to begin.<br><br>`,
+	choices: ["Continue"],
+	data: {type: "jumps1sortInstr",
+            exp: 'jumps'}
+};
+
+timeline.push(jumps1sortInstr);
+
+// var jumpsResponses = {
+//   type: 'survey-html-form',
+//   preamble: '<p> Tell us a bit about yourself. Who are you? Think of 5 labels that describe yourself.</p>',
+//   html: '<p> <input name="first" type="text" /><br> <input name="second" type="text" /><br>'+ 
+//   '<input name="third" type="text" /><br> <input name="fourth" type="text" /><br>'+
+//   '<input name="fifth" type="text" /><br>',
+//   required: true,
+//   dataAsArray: true,
+//   data: {type: "jumpsResponses1"}
+// };
+
+var jumpsSorting = {
+  type: 'free-sort',
+  stimuli: function () {
+    // var surveyResponses = jsPsych.data.get().filter({trial_type: 'survey-html-form'}).select('responses').values
+    // var parsedSurveyResponses = JSON.parse(surveyResponses)
+
+    var sorting_stimuli = [
+    //   parsedSurveyResponses[0].value,
+    //   parsedSurveyResponses[1].value,
+    //   parsedSurveyResponses[2].value,
+    //   parsedSurveyResponses[3].value,
+    //   parsedSurveyResponses[4].value
+    JSON.parse(jsPsych.data.get().filter({type: 'jumps1response1'}).select('responses').values).value,
+    JSON.parse(jsPsych.data.get().filter({type: 'jumps1response2'}).select('responses').values).value,
+    JSON.parse(jsPsych.data.get().filter({type: 'jumps1response3'}).select('responses').values).value,
+    JSON.parse(jsPsych.data.get().filter({type: 'jumps1response4'}).select('responses').values).value,
+    JSON.parse(jsPsych.data.get().filter({type: 'jumps1response5'}).select('responses').values).value
+
+    ]
+
+    for (i=0; i<7; i++) {
+      sorting_stimuli.push(jsPsych.randomization.sampleWithoutReplacement($(jumpsStock).not(sorting_stimuli).get(), 1)[0])
+    };
+
+    return sorting_stimuli
+  },
+  prompt: "<p>Click and drag the animals below to sort them such that <b>similar animals are close together</b>.</p>",
+  stim_starts_inside: false,
+  column_spread_factor: 0.75,
+  sort_area_shape: "square",
+  data: {type: "jumpsSort",
+        exp: "jumps"}
+};
+
+timeline.push(jumpsSorting);
 
 // Demographics:
 
@@ -309,7 +209,7 @@ for(i=0; i < ratTrials.length; i++) {
 //     {prompt: "<strong>What is your race/ethnicity?</strong>", options: ["Native American or Alaska Native", "Asian", "Pacific Islander", "Black or African American", "White", "Multi-racial / Multi-ethnic", "Other"], values: ["Native", "Asian", "Pacific-Islander", "Black", "White", "Multi", "Other"], required: true, horizontal: false, name: 'Demo_Race'},
 //     {prompt: "<strong>Do you identify as Hispanic or Latino/a?</strong>", options: ["Yes, I identify as either Hispanic or Latino/a","No, I do not identify as either Hispanic or Latino/a"], values: ["Hispanic", "Not-Hispanic"], required: true, horizontal: false, name: 'Demo_Hispanic'}
 //   ],
-//   data: {exp: 'RAT',
+//   data: {
 // 			type: "demographics"}
 // };
 
@@ -323,15 +223,22 @@ for(i=0; i < ratTrials.length; i++) {
 //     {prompt: "If you had to guess, what do you think this study was about?", name: 'MotivationGuess', rows: 10, columns: 70, required: true}, 
 //     {prompt: "During your participation, did you encounter any issues or technical difficulties?", name: 'TechnicalIssues', rows: 10, columns: 70, required: true}
 //   ],
-//   data: {exp: 'RAT',
+//   data: {
 // 			type: "demographics2"}
 // };
 
 // timeline.push(demographics2);
 
+var email = {
+  type: 'survey-text',
+  questions: [
+    {prompt: "If you would like to be entered in the iPad raffle, <br>please provide an email address that we can contact in case you win:", name: 'Age', rows: 1, columns: 35, required: false}
+  ],
+  data: {
+			type: "email"}
+};
 
-
-var preloadImages = [];
+timeline.push(email);	    
 
 jsPsych.data.addProperties({userAgent: navigator.userAgent,
 	startTime: startTime,
@@ -348,12 +255,12 @@ jsPsych.init({
 	  show_progress_bar: true,
       on_finish: function () {
 			var endTime = new Date();
-			jsPsych.data.addProperties({endTime: endTime,
+			jsPsych.data.addProperties({timepoint: jsPsych.data.getURLVariable('timepoint'),
+        endTime: endTime,
         partID: JSON.parse(jsPsych.data.get().filter({type: 'partID'}).select('responses').values).partID,
 						   partID2: jsPsych.data.getURLVariable('ID')});
-      // jsPsych.data.displayData();
+            // jsPsych.data.displayData();
 			 SaveData(jsPsych.data.get().csv()); // .json()?
-             SaveData(jsPsych.data.get().json()); // .json()?
     }
     });
 
@@ -361,28 +268,32 @@ jsPsych.init({
   var dataToServer = {
     'id': getPartID(),
     'experimenter': 'Ethan',
-    // 'experimentName': 'CogFlex_RAT_draft',
-    'experimentName': 'RAT_meditation_v1',
+    'experimentName': 'Jumps_practice-effects_v1',
     'curData': curData
   }; 
 
+//   $.post("https://bradylab.ucsd.edu/turk/save.php",
+//     dataToServer,
+//     function(data) { 
+// 			var newDoc = document.open("text/html", "replace");
+// 			// newDoc.write("All done, thanks! To submit the HIT, paste this code into Turk: " + randCode);
+//             newDoc.write("Your responses have been recorded. This part of the study is now complete.<br>" +
+// 			"You may now return to the previous page and start the next part.");
+// 			newDoc.close();
+//     }
+//   ).fail(function(data) { 
+// 			var newDoc = document.open("text/html", "replace");
+// 			// newDoc.write("All done, thanks! To submit the HIT, paste this code into Turk: " + randCode);
+//             newDoc.write("Your responses have been recorded. This part of the study is now complete.<br>" +
+// 			"You may now return to the previous page and start the next part.");
+// 			newDoc.close();
+// 	});  
+
   $.post("https://bradylab.ucsd.edu/turk/save.php",
     dataToServer,
-    function(data) { 
-			var newDoc = document.open("text/html", "replace");
-			// newDoc.write("All done, thanks! To submit the HIT, paste this code into Turk: " + randCode);
-            newDoc.write("Your responses have been recorded. This part of the study is now complete.<br>" +
-			"You may now return to the previous page and start the next part.");
-			newDoc.close();
-    }
-  ).fail(function(data) { 
-			var newDoc = document.open("text/html", "replace");
-			// newDoc.write("All done, thanks! To submit the HIT, paste this code into Turk: " + randCode);
-            newDoc.write("Your responses have been recorded. This part of the study is now complete.<br>" +
-			"You may now return to the previous page and start the next part.");
-			newDoc.close();
-	});  
-
+    FunctionWhenDoneSaving
+  ).fail(FunctionWhenDoneSaving);	    
+	    
 
   // $.post("http://localhost:8000/save.php",
   //   dataToServer,
@@ -391,10 +302,10 @@ jsPsych.init({
 };
 
 function FunctionWhenDoneSaving() {
-        // var urlToRedirect = "https://ucsd.sona-systems.com/webstudy_credit.aspx?experiment_id=2079&credit_token=82002d4286dc4451a327871aa536edab&survey_code=" +
-        // jsPsych.data.getURLVariable('survey_code');
-    //    window.location.href = urlToRedirect;
-      };
+        // var urlToRedirect = "https://ethanhurwitz.github.io/ucsdmindfulnessstudy/ThankYou.html"
+        var urlToRedirect = "https://google.com"
+       window.location.href = urlToRedirect;
+      };	    
 
     </script>
   </body>

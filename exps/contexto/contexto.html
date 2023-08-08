@@ -28,6 +28,7 @@
     'partID': [],
     'partID2': jsPsych.data.getURLVariable('ID'),	  
     'date': new Date(),
+    'timepoint': jsPsych.data.getURLVariable('timepoint'),
     'data': [
   ]
   };
@@ -50,27 +51,27 @@
 // setD = jsPsych.randomization.repeat(setD, 1);
 // var setE = ['submarine', 'pancake', 'desert', 'church', 'hammer'];
 // setE = jsPsych.randomization.repeat(setE, 1);
-var setF = ['flower', 'moose', 'cookie', 'car', 'pencil'];
-setF = jsPsych.randomization.repeat(setF, 1);   	
+// var setF = ['flower', 'moose', 'cookie', 'car', 'pencil'];
+// setF = jsPsych.randomization.repeat(setF, 1);   	
+var set1 = ['flower', 'moose', 'cookie', 'car', 'pencil', 'tree'];
+set1 = jsPsych.randomization.repeat(set1, 1);
+
+var set2 = ['barbecue', 'pancake', 'camera', "scallop", "banana", "pirate"];
+set2 = jsPsych.randomization.repeat(set2, 1);
+
+var set3 = ["pumpkin", "spider", "mushroom", "aquarium", "horse", "frog"];
+set3 = jsPsych.randomization.repeat(set3, 1);
 
 var targets = {'word': [""],
                'start': [""]};
 
-    // if (jsPsych.data.getURLVariable('set') == 'A') {
-    //     targets.word = setA;
-    // } else if (jsPsych.data.getURLVariable('set') == 'B') {
-    //     targets.word = setB;
-    // } else if (jsPsych.data.getURLVariable('set') == 'C') {
-    //     targets.word = setC;
-    // } else if (jsPsych.data.getURLVariable('set') == 'D') {
-    //     targets.word = setD;
-    // } else if (jsPsych.data.getURLVariable('set') == 'E') {
-    //     targets.word = setE;
-    // } else if (jsPsych.data.getURLVariable('set') == 'F') {
-    //     targets.word = setF;
-    // };	
-
-targets.word = setF; 
+    if (jsPsych.data.getURLVariable('timepoint') == '1') {
+        targets.word = set1;
+    } else if (jsPsych.data.getURLVariable('timepoint') == '2') {
+        targets.word = set2;
+    } else if (jsPsych.data.getURLVariable('timepoint') == '3') {
+        targets.word = set3;
+    };
 
 // function shuffle(obj1, obj2) {
 //   var index = obj1.length;
@@ -263,7 +264,7 @@ var change_class = function() {
 var time1 = new Date();
 var time_temp = new Date();
 let counter = 0;
-let guess_limit = 20;
+let guess_limit = 10;
 let close_enough = 30;
 let close_enough_on = 0;	
 </script>
@@ -275,7 +276,7 @@ let close_enough_on = 0;
   var dataToServer = {
     'id': jsPsych.data.getURLVariable('ID'),
     'experimenter': 'Ethan',
-    'experimentName': 'contexto_meditation_V2',
+    'experimentName': 'contexto_practice-effects_v1',
     'curData': curData
   }; 
 	
