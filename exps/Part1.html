@@ -1,53 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>UCSD Study Part 2</title>
+<title>UCSD Study Part 1</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://timbrady.org/turk/TimTurkTools.js"></script> -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
 <script src="../jsLibs/jquery-3-6-0-min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://timbrady.org/turk/TimTurkTools.js"></script> -->
 <script src="../jsLibs/ajax.js"></script>
 <script src="../jsLibs/bootstrap-min.js"></script>
 <script src="../jsLibs/TimTurkTools.js"></script>
-<script src="../jsPsych/jspsych-6.1.0/jspsych.js"></script>
-<script src="../jsPsych/jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
-<script src="../jsPsych/jspsych-6.1.0/plugins/jspsych-html-button-response.js"></script>
-<script src="../jsPsych/jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js"></script>
-<script src="../jsPsych/jspsych-6.1.0/plugins/jspsych-survey-multi-choice.js"></script>
-<script src="../jsPsych/jspsych-6.1.0/plugins/jspsych-survey-multi-select.js"></script>
-<script src="../jsPsych/jspsych-6.1.0/plugins/jspsych-video-button-response.js"></script>
+<script src="../jsPsych/jspsych-6.3.1/jspsych.js"></script>
+<script src="../jsPsych/jspsych-6.3.1/plugins/jspsych-html-keyboard-response.js"></script>
+<script src="../jsPsych/jspsych-6.3.1/plugins/jspsych-html-button-response.js"></script>
+<script src="../jsPsych/jspsych-6.3.1/plugins/jspsych-image-keyboard-response.js"></script>
+<script src="../jsPsych/jspsych-6.3.1/plugins/jspsych-survey-multi-choice.js"></script>
+<script src="../jsPsych/jspsych-6.3.1/plugins/jspsych-survey-multi-select.js"></script>
+<script src="../jsPsych/jspsych-6.3.1/plugins/jspsych-video-button-response.js"></script>
+<!-- <script src="../jsPsych/jspsych-6.3.1/plugins/jspsych-survey-text.js"></script> -->
 <script src="../jsPsych/jspsych-6.1.0/plugins/jspsych-survey-text.js"></script>
-<!-- <script src="../jsPsych/jspsych-6.1.0/plugins/jspsych-free-sort_update2.js"></script> -->
-<script src="../jsPsych/jspsych-6.1.0/plugins/jspsych-free-sort-NEW_updated2.js"></script>
-<script src="../jsPsych/jspsych-6.1.0/plugins/jspsych-survey-html-form.js"></script>
-<!--audio record 1-->
-<script src="../jsPsych/jspsych-6.1.0/plugins/jspsych-html-audio-response_modified.js"></script>
-<!--audio record 2-->
-<script src="../jsPsych/jspsych-6.1.0/plugins/jspsych-html-audio-response.js"></script>
-<!--link here-->
-<link href="../jsPsych/jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+<script src="../jsPsych/jspsych-6.3.1/plugins/jspsych-survey-html-form.js"></script>
+<script src="../jsPsych/jspsych-6.3.1/plugins/jspsych-html-slider-response.js"></script>
+<script src="../jsPsych/jspsych-6.3.1/plugins/jspsych-preload.js"></script>
+<link href="../jsPsych/jspsych-6.3.1/css/jspsych.css" rel="stylesheet" type="text/css"></link>
 
 <style>
-    .CDmask {
-        height: 550px;
-        width: 550px;
+    .blickets {
+        height: 200px;
+        width: 200px;
+}
+    .blicketsSmall {
+        height: 100px;
+        width: 100px;
     }
-    .CDimage {
-        height: 500px;
-        width: 500px;
-    }
-
+    
 </style>
 </head>
   
   <body>
     <script>
 
-// var randCode = "COG" + Math.round(Math.random()*1000) + "420" + Math.round(Math.random()*1000) + "FLEX";
+// var randCode = "BLI" + Math.round(Math.random()*1000) + "420" + Math.round(Math.random()*1000) + "CKET";
 
 Shuffle = function (o) {
     for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
@@ -58,17 +52,49 @@ var startTime = new Date();
 
 var timeline = [];
 
-// var consent = {
-//   type: 'html-button-response',
-//   stimulus: 'Please read the consent form below and click "I agree" below to consent and begin the study.'+
-//   '<iframe src="../151866_AdultConsent_clean.pdf#toolbar=0" width="100%" height="500px">'+
-//     '</iframe>',
-//   choices: ["I agree"],
-//   data: {type: "consent"}
-// };
+var preload = {
+    type: 'preload',
+    images: ['stimuli/oval.png',
+    'stimuli/rectangle.png',
+    'stimuli/trapezoid.png',
+    'stimuli/triangle.png',
+    'stimuli/diamond.png',
+    'stimuli/pentagon.png'],
+    video: ['https://bradylab.ucsd.edu/turk/experiments/Ethan/functionalForm/blicketsTraining.mp4',
+'https://bradylab.ucsd.edu/turk/experiments/Ethan/functionalForm/blicketsIntro.mp4',
+'https://bradylab.ucsd.edu/turk/experiments/Ethan/functionalForm/blicketsTest.mp4'],
+    message: '<p>Please wait while the files load.</p>',
+    continue_after_error: true,
+    max_load_time: 1000000,
+    on_error: function(file) {
+      console.log('Error: ',file);
+    },
+    on_success: function(file) {
+      console.log('Loaded: ',file);
+    }
+  };
 
-// timeline.push(consent);
+timeline.push(preload);
 
+  var after_preload = {
+    type: 'html-button-response',
+    stimulus: function() {
+      var message;
+      // if continue_after_error is true in your preload trial, then you can check the trial
+      // data to see if preloading was successful
+      var preload_trial_data = jsPsych.data.getLastTrialData().values()[0];
+      if (preload_trial_data.success) {
+        message = '<p>All files loaded successfully! Ready to continue.</p>';
+      } else {
+        message = '' //'<p>There was a problem loading one or more files.</p>'+
+          //'<p>The files that failed to load are listed in the data for the previous trial.</p>';
+      }
+      return message;
+    },
+    choices: ['Continue']
+  };
+
+timeline.push(after_preload);
 
 var partID = {
   type: 'survey-text',
@@ -81,287 +107,242 @@ var partID = {
 
 timeline.push(partID);
 
-var introCD = {
-    type: 'html-keyboard-response',
-    stimulus: 'We are going to do another task now.<br><br>' +
-    'In this next section, you will now be shown images made up of a green part and a red part.<br><br>'+
-    '<u><b>Pay very close attention to only the RED part.</b></u><br><br>'+
-    `You will be asked whether or not the <b>RED</b> part looks like something you've ever seen!<br>`+
-    'You may also be asked if the picture changes.<br><br>',
-    choices: ['space'],
-    prompt: "<p>Press the spacebar when you are ready to begin</p>",
-    data: {type: 'CD_Instr',
-            exp: 'changeDetection'}
+var consent = {
+  type: 'html-button-response',
+  stimulus: 'Please read the consent form below and click "I agree" below to consent and begin the study.'+
+  '<iframe src="../151866_AdultConsent_clean.pdf#toolbar=0" width="100%" height="500px">'+
+    '</iframe>',
+  choices: ["I agree"],
+  data: {type: "consent"}
 };
 
-timeline.push(introCD);
+timeline.push(consent);
 
-CDcueTrials = [];
+var blicketIntro = {
+    type: 'video-button-response',
+    stimulus: [
+    'https://bradylab.ucsd.edu/turk/experiments/Ethan/functionalForm/blicketsIntro.mp4',
+    ],
+    choices: ['Continue'],
+    response_allowed_while_playing: false,
+    prompt: '<p></p>',
+    width: 1200,
+    height: 700
+};
 
-CDtestTrials = [];
+timeline.push(blicketIntro);
 
-CDcueTrialList = [[1, 2],
-            [3, 4],
-            [5, 6],
-            [7, 8],
-            [9, 10]];
+var blicketTraining = {
+    type: 'video-button-response',
+    stimulus: [
+        'https://bradylab.ucsd.edu/turk/experiments/Ethan/functionalForm/blicketsTraining.mp4',
+    ],
+    choices: ['Continue'],
+    response_allowed_while_playing: false,
+    prompt: '<p></p>',
+    width: 1200,
+    height: 700
+};
 
-CDcueTrialList = Shuffle(CDcueTrialList); // shuffle within as well?
+timeline.push(blicketTraining);
 
-CDtestTrialList = [[11, 12, 'cue'],
-[13, 14, 'cue'],
-[15, 16, 'cue'],
-[17, 18, 'cue'],
-[19, 20, 'cue'],
-[21, 22, 'uncue'],
-[23, 24, 'uncue'],
-[25, 26, 'uncue'],
-[27, 28, 'uncue'],
-[29, 30, 'uncue'],
-[31, 32, 'none'],
-[33, 34, 'none'],
-[35, 36, 'none'],
-[37, 37, 'none'], // originally 37/38 but this actually is a change.
-[39, 40, 'none']];
+// Questions from training trial (2AFC and confidence)
 
-CDtestTrialList = Shuffle(CDtestTrialList); // shuffle within as well?
+var trainingBlickets = ["trapezoid", "oval", "diamond"];
 
-var CDchange = {
+for (i=0; i<3; i++){
+
+timeline.push({
+        type: 'survey-multi-choice',
+        questions: [
+          {
+            prompt: `Now that you've seen these objects on the machine, do you think that <b>${trainingBlickets[i]}</b> is a blicket?<br><br>`+
+            `<img class="blickets" src="stimuli/${trainingBlickets[i]}.png">`,
+            options: ["Yes, it is a blicket.", "No, it is not a blicket."],
+            // options: ["<br>Yes, it is a blicket.", "<br>No, it is not a blicket."],
+            values: ["Blicket", "NotBlicket"], 
+            horizontal: true,
+            required: true,
+            name: `training_${i}`
+          }],
+          data: {type: `blickets_training`,
+          type2: `blicketResponse`,
+          object: `${trainingBlickets[i]}`}});
+
+timeline.push({
+        type: 'html-slider-response',
+        prompt: `<br><br>`,
+        stimulus: `How confident are you about whether <b>${trainingBlickets[i]}</b> is a blicket?<br><br>` + 
+        `<img class="blickets" src="stimuli/${trainingBlickets[i]}.png">`,
+        labels: ["Not confident<br>at all", "Not very<br>confident", "Kind of<br>confident", "Confident", "Extremely<br>confident"],
+        require_movement: true,
+        data: {type: `blickets_training`,
+               type2: `blicketConfidence`,
+               object: `${trainingBlickets[i]}`}
+
+    });
 
 };
 
+timeline.push({
+    type: 'survey-multi-select',
+    questions: [{prompt: "Now it's your turn. Which of these would you use to turn on the machine yourself? <br><b>Use only what you need to activate the machine.</b>", 
+                options: [`${trainingBlickets[0]}<br><img class="blicketsSmall" src="stimuli/${trainingBlickets[0]}.png">`,
+                        `${trainingBlickets[1]}<br><img class="blicketsSmall" src="stimuli/${trainingBlickets[1]}.png">`,
+                        `${trainingBlickets[2]}<br><img class="blicketsSmall" src="stimuli/${trainingBlickets[2]}.png">`],
+                        values: [`${trainingBlickets[0]}`, `${trainingBlickets[1]}`, `${trainingBlickets[2]}`],//TEST 
+                horizontal: true,
+                required: true
+            }],
+    data: {type: `blickets_training`,
+    type2: `blicketOwnChoice`,
+    object: `ownChoice`}
+});
 
+timeline.push({
+    type: 'html-slider-response',
+        prompt: ` `,
+        stimulus: `<b>How confident are you about whether your choice will activate the machine?</b><br><br>`,
+        labels: ["Not confident at all", "Not very confident", "Kind of confident", "Confident", "Extremely confident"],
+        require_movement: true,
+        data: {type: `blickets_training`,
+               type2: `blicketConfidence`,
+            object: `ownChoice`}
+});
 
-for (i=0; i < CDcueTrialList.length; i++){
-    CDcueTrials.push(//fixation
-            {
-        type: 'html-keyboard-response',
-        stimulus: '<div style="font-size:60px;">+</div>',
-        choices: jsPsych.NO_KEYS,
-        trial_duration: 1000,
-        data: {
-            type: 'fixationPoint',
-            exp: 'changeDetection',
-            trial: i+1,
-        }
-}
-    );
+// Segue to next set
 
-    CDcueTrials.push(//first image
-    {type: 'html-keyboard-response',
-        stimulus: `<img class="CDimage" src='stimuli/${CDcueTrialList[i][0]}.png'>`,
-        choices: jsPsych.NO_KEYS,
-        trial_duration: 1000,
-        data: {exp: 'changeDetection',
-               trial: i+1,
-               image: CDcueTrialList[i][0],
-               cueOrTest: 'cue',
-               type: 'image'}}
-    );
-
-    CDcueTrials.push(//mask image
-        {
-    type: 'html-keyboard-response',
-    stimulus: `<img class='CDmask' src='stimuli/mask.png'>`,
-    choices: jsPsych.NO_KEYS,
-    trial_duration: 500,
-    data: {
-        type: 'CDmask',
-        exp: 'changeDetection',
-                trial: i+1,
-    }
-    }
-    );
-
-    CDcueTrials.push(//second image
-    {type: 'html-keyboard-response',
-        stimulus: `<img class="CDimage" src='stimuli/${CDcueTrialList[i][1]}.png'>`,
-        choices: jsPsych.NO_KEYS,
-        trial_duration: 1000,
-        data: {exp: 'changeDetection',
-                trial: i+1,
-                image: CDcueTrialList[i][1],
-                cueOrTest: 'cue',
-                type: 'image'}}
-    );
-
-    CDcueTrials.push(//familiarity judgment
-    {type: 'html-keyboard-response',
-    stimulus: `Press S if the RED image is familiar and K if the RED image is new.`,
-    choices: ['s', 'k'],
-    prompt: "",
-    data: {exp: 'changeDetection',
-          cueOrTest: 'cue',
-          type: 'familiarityJudgment',
-          trial: i+1,
-          imagePair: [CDcueTrialList[i][0], CDcueTrialList[i][1]]}}
-    );
-
-    CDcueTrials.push(//change detection
-    {type: 'html-keyboard-response',
-    stimulus: `Did the image change? Press S if yes and K if no.`,
-    choices: ['s', 'k'],
-    prompt: "",
-    data: {exp: 'changeDetection',
-           cueOrTest: 'cue',
-           type: 'changeDetection',
-           trial: i+1,
-           imagePair: [CDcueTrialList[i][0], CDcueTrialList[i][1]]}}
-    );
-}
-
-for(i=0; i < CDcueTrials.length; i++) {
-    timeline.push(CDcueTrials[i])
+var training_test_transition = {
+    type: 'html-button-response',
+	stimulus: `Great! Now we are going to look at three <b>new</b> objects and try to determine<br> which are blickets and which are not blickets.<br><br>`,
+	choices: ["Continue"],
+	data: {type: "transition"}
 };
 
-for (i=0; i < CDtestTrialList.length; i++){
-    CDtestTrials.push(//fixation
-    {
-        type: 'html-keyboard-response',
-        stimulus: '<div style="font-size:60px;">+</div>',
-        choices: jsPsych.NO_KEYS,
-        trial_duration: 1000,
-        data: {
-            type: 'fixationPoint',
-            exp: 'changeDetection',
-            trial: i+1,
-        }
-}
-    );
+timeline.push(training_test_transition);
 
-    CDtestTrials.push(//first image
-    {type: 'html-keyboard-response',
-        stimulus: `<img class="CDimage" src='stimuli/${CDtestTrialList[i][0]}.png'>`,
-        choices: jsPsych.NO_KEYS,
-        trial_duration: 1000,
-        data: {exp: 'changeDetection',
-           trial: i+1,
-           image: CDtestTrialList[i][0],
-           cueOrTest: 'test',
-           type: 'image',
-           imageChange: CDtestTrialList[i][2]}}
-    );
 
-    CDtestTrials.push(//mask image
-    {
-    type: 'html-keyboard-response',
-    stimulus: `<img class='CDmask' src='stimuli/mask.png'>`,
-    choices: jsPsych.NO_KEYS,
-    trial_duration: 500,
-    data: {
-        type: 'CDmask',
-        exp: 'changeDetection',
-                trial: i+1,
-    }
-    }
-    );
-
-    CDtestTrials.push(//second image
-    {type: 'html-keyboard-response',
-    stimulus: `<img class="CDimage" src='stimuli/${CDtestTrialList[i][1]}.png'>`,
-    choices: jsPsych.NO_KEYS,
-    trial_duration: 1000,
-    data: {exp: 'changeDetection',
-        trial: i+1,
-        image: CDtestTrialList[i][1],
-        cueOrTest: 'test',
-        type: 'image',
-        imageChange: CDtestTrialList[i][2]}}
-    );
-
-    CDtestTrials.push(//familiarity judgment
-        {type: 'html-keyboard-response',
-        stimulus: `Press S if the RED image is familiar and K if the RED image is new.`,
-        choices: ['s', 'k'],
-        prompt: "",
-        data: {exp: 'changeDetection',
-          cueOrTest: 'test',
-          type: 'familiarityJudgment',
-          trial: i+1,
-          imageChange: CDtestTrialList[i][2],
-          imagePair: [CDtestTrialList[i][0], CDtestTrialList[i][1]]}}
-    );
-
-    CDtestTrials.push(//change detection
-        {type: 'html-keyboard-response',
-        stimulus: `Did the image change? Press S if yes and K if no.`,
-        choices: ['s', 'k'],
-        prompt: "",
-        data: {exp: 'changeDetection',
-            cueOrTest: 'test',
-            type: 'changeDetection',
-            trial: i+1,
-            imageChange: CDtestTrialList[i][2],
-            imagePair: [CDtestTrialList[i][0], CDtestTrialList[i][1]]}}
-    ); 
-}
-
-for(i=0; i < CDtestTrials.length; i++) {
-    timeline.push(CDtestTrials[i])
-}
-
-var AC_CD1 = {
-  type: 'survey-multi-choice',
-  questions: [
-    {prompt: "On the previous pages, which key did you need to press if the image <b>DID</b> change?", options: ["s","k"], values: [1, 0], required: true, horizontal: false, name: 'AC_CD1'}
-  ],
-  data: {exp: 'changeDetection',
-			type: "AC_CD"}
+var blicketTest = {
+    type: 'video-button-response',
+    stimulus: [
+    'https://bradylab.ucsd.edu/turk/experiments/Ethan/functionalForm/blicketsTest.mp4',
+    ],
+    choices: ['Continue'],
+    response_allowed_while_playing: false,
+    prompt: '<p></p>',
+    width: 1200,
+    height: 700
 };
 
-var AC_CD2 = {
-  type: 'survey-multi-choice',
-  questions: [
-    {prompt: "On the previous pages, which key did you need to press if the image <b>DID NOT</b> change?", options: ["s","k"], values: [0, 1], required: true, horizontal: false, name: 'AC_CD2'}
-  ],
-  data: {exp: 'changeDetection',
-			type: "AC_CD"}
+timeline.push(blicketTest);
+
+// // Questions from test trials (2AFC and confidence)
+
+var testBlickets = ["pentagon", "rectangle", "triangle"];
+
+for (i=0; i<3; i++){
+
+timeline.push({
+        type: 'survey-multi-choice',
+        questions: [
+          {
+            prompt: `Now that you've seen these objects on the machine, do you think that <b>${testBlickets[i]}</b> is a blicket?<br><br>`+
+            `<img class="blickets" src="stimuli/${testBlickets[i]}.png">`,
+            options: ["Yes, it is a blicket.", "No, it is not a blicket."],
+            values: ["Blicket", "NotBlicket"], 
+            horizontal: true,
+            required: true,
+            name: `test_${i}`
+          }],
+          data: {type: `blickets_test`,
+          type2: `blicketResponse`,
+          object: `${testBlickets[i]}`}});
+
+timeline.push({
+        type: 'html-slider-response',
+        prompt: `<br><br>`,
+        stimulus: `How confident are you about whether <b>${testBlickets[i]}</b> is a blicket?<br><br>` + 
+        `<img class="blickets" src="stimuli/${testBlickets[i]}.png">`,
+        labels: ["Not confident<br>at all", "Not very<br>confident", "Kind of<br>confident", "Confident", "Extremely<br>confident"],
+        require_movement: true,
+        data: {type: `blickets_test`,
+               type2: `blicketConfidence`,
+               object: `${testBlickets[i]}`}
+
+    });
+
 };
+
+timeline.push({
+    type: 'survey-multi-select',
+    questions: [{prompt: "Now it's your turn. Which of these would you use to turn on the machine yourself? <br><b>Use only what you need to activate the machine.</b>", 
+                options: [`${testBlickets[0]}<br><img class="blicketsSmall" src="stimuli/${testBlickets[0]}.png">`,
+                        `${testBlickets[1]}<br><img class="blicketsSmall" src="stimuli/${testBlickets[1]}.png">`,
+                        `${testBlickets[2]}<br><img class="blicketsSmall" src="stimuli/${testBlickets[2]}.png">`], 
+                horizontal: true,
+                required: true
+            }],
+    data: {type: `blickets_test`,
+    type2: `blicketOwnChoice`,
+    obj: `ownChoice`}
+});
+
+timeline.push({
+    type: 'html-slider-response',
+        prompt: ` `,
+        stimulus: `<b>How confident are you about whether your choice will activate the machine?</b><br><br>`,
+        labels: ["Not confident at all", "Not very confident", "Kind of confident", "Confident", "Extremely confident"],
+        require_movement: true,
+        data: {type: `blickets_test`,
+               type2: `blicketConfidence`,
+            object: `ownChoice`}
+});
+
 
 // Demographics:
 
-// var demographics = {
-//   type: 'survey-multi-choice',
-//   questions: [
-//     {prompt: "<strong>Are you colorblind?</strong>", options: ["Yes, I am colorblind.","No, I am not colorblind"], values: ["Colorblind", "Not-Colorblind"], required: true, horizontal: false, name: 'Demo_Colorblind'}, 
-//     {prompt: "<strong>What gender do you identify as?</strong>", options: ["Male", "Female", "Additional gender category/identity not listed", "Prefer not to answer"], values: ["Male", "Female", "Other", "No-Answer"], required: true, horizontal: false, name: 'Demo_Gender'},
-//     {prompt: "<strong>What is your race/ethnicity?</strong>", options: ["Native American or Alaska Native", "Asian", "Pacific Islander", "Black or African American", "White", "Multi-racial / Multi-ethnic", "Other"], values: ["Native", "Asian", "Pacific-Islander", "Black", "White", "Multi", "Other"], required: true, horizontal: false, name: 'Demo_Race'},
-//     {prompt: "<strong>Do you identify as Hispanic or Latino/a?</strong>", options: ["Yes, I identify as either Hispanic or Latino/a","No, I do not identify as either Hispanic or Latino/a"], values: ["Hispanic", "Not-Hispanic"], required: true, horizontal: false, name: 'Demo_Hispanic'}
-//   ],
-//   data: {
-// 			type: "demographics"}
-// };
+var demographics = {
+  type: 'survey-multi-choice',
+  questions: [
+    {prompt: "<strong>Are you colorblind?</strong>", options: ["Yes, I am colorblind.","No, I am not colorblind"], values: ["Colorblind", "Not-Colorblind"], required: true, horizontal: false, name: 'Demo_Colorblind'}, 
+    {prompt: "<strong>What gender do you identify as?</strong>", options: ["Male", "Female", "Additional gender category/identity not listed", "Prefer not to answer"], values: ["Male", "Female", "Other", "No-Answer"], required: true, horizontal: false, name: 'Demo_Gender'},
+    {prompt: "<strong>What is your race/ethnicity?</strong>", options: ["Native American or Alaska Native", "Asian", "Pacific Islander", "Black or African American", "White", "Multi-racial / Multi-ethnic", "Other"], values: ["Native", "Asian", "Pacific-Islander", "Black", "White", "Multi", "Other"], required: true, horizontal: false, name: 'Demo_Race'},
+    {prompt: "<strong>Do you identify as Hispanic or Latino/a?</strong>", options: ["Yes, I identify as either Hispanic or Latino/a","No, I do not identify as either Hispanic or Latino/a"], values: ["Hispanic", "Not-Hispanic"], required: true, horizontal: false, name: 'Demo_Hispanic'},
+    {prompt: "<strong>Have you ever been on a mindfulness/meditation retreat?</strong>", options: ["Yes","No"], values: ["Retreat", "No_Retreat"], required: true, horizontal: false, name: 'Demo_Retreat'},	  
+    {prompt: "<strong>Was your most recent mindfulness/meditation retreat silent?</strong>", options: ["Yes","No", "I have never been on a retreat"], values: ["Silent", "Not_Silent", "No_Retreat"], required: true, horizontal: false, name: 'Demo_SilentRetreat'},
+    {prompt: "<strong>Have you ever used a psychedelic drug or plant medicine<br>(e.g., psilocybin mushrooms, LSD, ayahuasca, DMT, mescaline)?</strong>", options: ["Yes","No"], values: ["Used", "Never_Used"], required: false, horizontal: false, name: 'Demo_Psychedelics'}  
+  ],
+  data: {
+			type: "demographics"}
+};
 
-// timeline.push(demographics);
+timeline.push(demographics);
 
-// var demographics2 = {
-//   type: 'survey-text',
-//   questions: [
-//     {prompt: "What is your current age?", name: 'Age', rows: 1, columns: 2, required: true},
+var demographics2 = {
+  type: 'survey-text',
+  questions: [
+    {prompt: "How did you find out about this study? If it was sent to you, from where / who?", name: 'Recruitment_Source', rows: 2, columns: 15, required: true},  	  
+    {prompt: "What is your primary contemplative or mindfulness practice (e.g., vipassana meditation, zen meditation, yoga, etc.)?", name: 'Primary_Practice', rows: 1, columns: 15, required: true},  	  	  
+    {prompt: "Approximately how long have you been regularly practicing your primary mindfulness/meditation practice? (Please specify days, months, or years)", name: 'Practice_Duration', rows: 1, columns: 12, required: true},
+    {prompt: "To the best of your ability, approximately how many <b>hours</b> would you say you have engaged with your primary mindfulness/meditation practice?", name: 'Practice_Duration_Hours', rows: 1, columns: 12, required: true},  	  	  
+    {prompt: "How many mindfulness/meditation retreats have you been on?", name: 'Retreat_Total', rows: 1, columns: 5, required: true},  	  	  
+    {prompt: "How many of those mindfulness/meditation retreats were silent?", name: 'Retreat_Silent_Total', rows: 1, columns: 5, required: true},  	  	  	  
+    {prompt: "Approximately how long has it been since your last mindfulness/meditation retreat? (Please specify days, months, or years)", name: 'Retreat_Recency', rows: 1, columns: 12, required: true},
+    {prompt: "If you have used a psychedelic drug or plant medicine, approximately how long ago was your most recent use? (Please specify days, months, or years)", name: 'Use_Recency', rows: 1, columns: 12, required: true},
+    {prompt: "What is your current age?", name: 'Age', rows: 1, columns: 2, required: true},	  
 //     {prompt: "In your own words, please tell us about what you have seen, and what you had to do, in this study so far:", name: 'ParticipationSummary', rows: 10, columns: 70, required: true}, 
 //     {prompt: "If you had to guess, what do you think this study was about?", name: 'MotivationGuess', rows: 10, columns: 70, required: true}, 
-//     {prompt: "During your participation, did you encounter any issues or technical difficulties?", name: 'TechnicalIssues', rows: 10, columns: 70, required: true}
-//   ],
-//   data: {
-// 			type: "demographics2"}
-// };
+    {prompt: "During your participation, did you encounter any issues or technical difficulties?", name: 'TechnicalIssues', rows: 10, columns: 70, required: true}
+  ],
+  data: {
+			type: "demographics2"}
+};
 
-// timeline.push(demographics2);
-
-
-
-var preloadImages = [];
-
-//  for (i = 1; i < 40; i++) {
- for (i = 1; i < 38; i++) {     
-   preloadImages.push(`stimuli/${i}.png`)
- };
-
-  preloadImages.push(`stimuli/mask.png`);
+timeline.push(demographics2);
 
 jsPsych.data.addProperties({userAgent: navigator.userAgent,
 	startTime: startTime,
-// 	randCode: randCode
+//	randCode: randCode
 });
 
 getPartID = function() {
@@ -370,13 +351,13 @@ getPartID = function() {
 
 jsPsych.init({
       timeline: timeline,
-      preload_images: preloadImages,
+    //   preload_images: preloadMedia,
 	  show_progress_bar: true,
       on_finish: function () {
 			var endTime = new Date();
-			jsPsych.data.addProperties({timepoint: jsPsych.data.getURLVariable('timepoint'),
-        endTime: endTime,
-        partID: JSON.parse(jsPsych.data.get().filter({type: 'partID'}).select('responses').values).partID,
+      var partID = JSON.parse(jsPsych.data.get().filter({type: 'partID'}).select('responses').values).partID;
+			jsPsych.data.addProperties({endTime: endTime,
+      partID: partID,
 						   partID2: jsPsych.data.getURLVariable('ID')});
             // jsPsych.data.displayData();
 			 SaveData(jsPsych.data.get().csv()); // .json()?
@@ -387,7 +368,7 @@ jsPsych.init({
   var dataToServer = {
     'id': getPartID(),
     'experimenter': 'Ethan',
-    'experimentName': 'CD_practice-effects_V1',
+    'experimentName': 'functionalForm_meditation_V2',
     'curData': curData
   }; 
 	
@@ -420,6 +401,7 @@ function FunctionWhenDoneSaving() {
         // jsPsych.data.getURLVariable('survey_code');
     //    window.location.href = urlToRedirect;
       };
+
 
 
 
